@@ -40,7 +40,15 @@ The deployed MCP endpoint is:
 
 `https://learn-mcp-step-01.zartajalichanna25.workers.dev/mcp`
 
-I verified it with MCP Inspector: `tools/list` returns `greet` and `get_time`, and both tools return text plus structured content when called on the public URL. Add that endpoint as a custom remote connector in claude.ai, Claude Desktop and ChatGPT developer mode.
+I verified it with MCP Inspector: `tools/list` returns `greet` and `get_time`, and both tools return text plus structured content when called on the public URL.
+
+## Client verification
+
+I added the public URL as a custom remote connector in claude.ai and as a custom MCP server in ChatGPT. In both clients I prompted the model to call `greet` with the name `OpenCode`, and both returned:
+
+> Hello, OpenCode! Nice to meet you from a remote MCP server on Cloudflare Workers.
+
+Screenshots of the calls are in `screenshots/claude-greet.jpg` and `screenshots/chatgpt-greet.jpg`. Claude discovered both tools as read-only; ChatGPT reported the tool as `mcp__Learn_MCP_Step_01__greet`. Claude.ai's free plan allows one custom connector, so this connector replaced an expired `viewmax` connector.
 
 No secrets are needed in this step, so `.dev.vars.example` is only a template for later steps.
 
