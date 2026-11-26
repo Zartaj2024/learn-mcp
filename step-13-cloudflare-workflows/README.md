@@ -6,9 +6,9 @@ Some jobs take minutes, run in several stages, wait for a person, or must surviv
 
 ## Learn first
 
-This repo is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
+This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
 
-> **Note:** Chapters 12 to 20 of the book, which this course follows, don't cover durable execution or Cloudflare Workflows. The lessons below give the ideas this step relies on, and the [Cloudflare Workflows docs](https://developers.cloudflare.com/workflows/) teach the feature itself.
+> **Note:** Chapters 12 to 20 of the book, which this bootcamp follows, don't cover durable execution or Cloudflare Workflows. The lessons below give the ideas this step relies on, and the [Cloudflare Workflows docs](https://developers.cloudflare.com/workflows/) teach the feature itself.
 
 - [17.4 Stateless servers](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/stateless-servers/). Why a job's progress can't live in the Worker's memory.
 - [14.8 Async and await](https://agentfactory.panaversity.org/building-ai-workers/structuring-programs/async-and-await/). Waiting on long work in TypeScript.
@@ -23,14 +23,14 @@ This repo is the hands-on companion to [The AI Agent Factory](https://agentfacto
 
 ## Why this step matters
 
-Real client work includes jobs that don't fit in one request: a year-end report, a month-end close, an approval that waits for a manager. A Worker request that runs too long gets cut off, and anything kept in memory is lost. Workflows gives these jobs a durable home inside the MCP server's own Worker, with retries and waiting built in and nothing extra to host. From this step on, every long or multi-stage job the server runs is a Workflow. This course standardizes on Workflows for durable execution, and step 14 builds on it.
+Real client work includes jobs that don't fit in one request: a year-end report, a month-end close, an approval that waits for a manager. A Worker request that runs too long gets cut off, and anything kept in memory is lost. Workflows gives these jobs a durable home inside the MCP server's own Worker, with retries and waiting built in and nothing extra to host. From this step on, every long or multi-stage job the server runs is a Workflow. This bootcamp standardizes on Workflows for durable execution, and step 14 builds on it.
 
 ## Why this technology in an MCP server: Cloudflare Workflows
 
 - **What it is.** Workflows is Cloudflare's durable execution engine. A job is written as named steps whose results are saved, so it survives crashes and redeploys, retries failed steps, and can sleep or wait for an outside event.
 - **Why an MCP server uses it.** Some client jobs are multi-stage and slow, or wait for a person: a year-end report, an approval. A tool starts a Workflow and returns a run ID, and the model checks its status with another tool, so long jobs fit the request-and-reply shape of MCP.
 - **What it solves.** Jobs that restart from scratch after a failure, approvals with nowhere to wait, and progress nobody can see.
-- **Alternatives.** Chaining queue messages or building a state machine on Durable Object alarms by hand, or other engines such as Temporal and Inngest. This course standardizes on Workflows because they run inside the same Worker.
+- **Alternatives.** Chaining queue messages or building a state machine on Durable Object alarms by hand, or other engines such as Temporal and Inngest. This bootcamp standardizes on Workflows because they run inside the same Worker.
 
 ## What you will learn
 
@@ -80,7 +80,7 @@ Every step is built with **Claude Code in Claude Desktop**. Follow the instructi
 **1. Open the repo's root folder in the Code tab of Claude Desktop so the bundled skills load, then copy your step 12 code into `step-13-cloudflare-workflows/`.**
 
 ```text
-Copy my step-12 code into step-13-cloudflare-workflows/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the course's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-13 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds. Then create a Neon branch named step-13 from my step-12 branch and point this step's database settings (the connection string in .dev.vars and as a secret, and Hyperdrive once the server uses it) at the new branch, so my earlier steps keep working while they are graded.
+Copy my step-12 code into step-13-cloudflare-workflows/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the bootcamp's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-13 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds. Then create a Neon branch named step-13 from my step-12 branch and point this step's database settings (the connection string in .dev.vars and as a secret, and Hyperdrive once the server uses it) at the new branch, so my earlier steps keep working while they are graded.
 ```
 
 **2. Switch to plan mode and plan the Workflow.**
@@ -120,9 +120,9 @@ Deploy, then give me prompts to try in Claude and ChatGPT that start a report, c
 
 ## Submission checklist
 
-Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ Do not open a pull request to the course repo.
+Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ Do not open a pull request to the bootcamp repo.
 
-- [ ] Your fork is synced with the course repo
+- [ ] Your fork is synced with the bootcamp repo
 - [ ] All code for this step is in `step-13-cloudflare-workflows/` and pushed to your fork
 - [ ] No secrets are committed (`.dev.vars.example` only)
 - [ ] The server is deployed to your own Cloudflare account and the `/mcp` URL works

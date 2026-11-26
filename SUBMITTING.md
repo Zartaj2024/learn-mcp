@@ -1,6 +1,6 @@
 # Submitting Your Work
 
-This course is also an assignment. You do all your work in **your own fork** of this repository, and you submit each finished step through the submission form.
+This bootcamp is also an assignment. You do all your work in **your own fork** of this repository, and you submit each finished step through the submission form.
 
 > ⛔ **Do not open pull requests to this repository.** Pull requests to `panaversity/learn-mcp` are not how you submit, and they will be closed without review. Your work stays in your fork.
 
@@ -20,14 +20,14 @@ Clone **your fork**, not the original:
 git clone https://github.com/<your-username>/learn-mcp.git
 cd learn-mcp
 git remote add upstream https://github.com/panaversity/learn-mcp.git
-git remote -v   # origin = your fork, upstream = the course repo
+git remote -v   # origin = your fork, upstream = the bootcamp repo
 ```
 
 Then open Claude Desktop, go to the **Code** tab, and choose your cloned `learn-mcp` folder (the repo root) as the folder to work in.
 
 ## 3. Keep your fork in sync
 
-New steps and fixes are added to the course repo over time. Pull them into your fork before starting each step.
+New steps and fixes are added to the bootcamp repo over time. Pull them into your fork before starting each step.
 
 **On GitHub:** open your fork and click **Sync fork → Update branch**.
 
@@ -42,7 +42,7 @@ git push origin main
 
 To avoid merge conflicts when you sync:
 
-- **Don't edit the course's own files**: `README.md`, `AGENTS.md`, `SUBMITTING.md`, `.claude/skills/`, and the `README.md` inside each step folder.
+- **Don't edit the bootcamp's own files**: `README.md`, `AGENTS.md`, `SUBMITTING.md`, `.claude/skills/`, and the `README.md` inside each step folder.
 - Put your own notes in a `NOTES.md` inside the step folder instead.
 
 ## 4. Do the work in each step folder
@@ -96,7 +96,7 @@ git push origin step-01-done-v2
 
 Submit each step through the form:
 
-**📝 Submission form: `TODO: FORM LINK (the course team will add it here)`**
+**📝 Submission form: `TODO: FORM LINK (the bootcamp team will add it here)`**
 
 > Until the link is added, keep each finished step tagged and pushed. You can submit every finished step once the form opens.
 
@@ -132,4 +132,4 @@ Each step is graded out of 10. A step passes at 7, and the grader reviews the co
 ## Getting help
 
 - Re-read the step's README and ask Claude (in the Code tab) to explain whatever is unclear.
-- Ask your instructor or classmates through the course's usual help channel. Don't use pull requests for questions.
+- Ask your instructor or classmates through the bootcamp's usual help channel. Don't use pull requests for questions.

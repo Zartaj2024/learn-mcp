@@ -6,7 +6,7 @@ Almost every server you build for a client, and every product you sell, serves m
 
 ## Learn first
 
-This repo is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
+This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
 
 - [18.9 What a tenant is](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/what-a-tenant-is/). A product serves many companies, and each company's people and data stay apart.
 - [18.10 Where the tenant comes from](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/where-the-tenant-comes-from/). The company comes from the verified token, never from what the model sends.
@@ -99,7 +99,7 @@ Every step is built with **Claude Code in Claude Desktop**. Follow the instructi
 **1. Open the repo's root folder in the Code tab of Claude Desktop so the bundled skills load, then copy your step 6 code into `step-07-multi-tenancy/`.**
 
 ```text
-Copy my step-06 code into step-07-multi-tenancy/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the course's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-07 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds. Then create a Neon branch named step-07 from my step-06 branch and point this step's database settings (the connection string in .dev.vars and as a secret, and Hyperdrive once the server uses it) at the new branch, so my earlier steps keep working while they are graded.
+Copy my step-06 code into step-07-multi-tenancy/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the bootcamp's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-07 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds. Then create a Neon branch named step-07 from my step-06 branch and point this step's database settings (the connection string in .dev.vars and as a secret, and Hyperdrive once the server uses it) at the new branch, so my earlier steps keep working while they are graded.
 ```
 
 **2. Switch to plan mode and write the tenancy decision record.**
@@ -152,9 +152,9 @@ Deploy, then give me prompts to try in Claude and ChatGPT as two users in differ
 
 ## Submission checklist
 
-Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ Do not open a pull request to the course repo.
+Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ Do not open a pull request to the bootcamp repo.
 
-- [ ] Your fork is synced with the course repo
+- [ ] Your fork is synced with the bootcamp repo
 - [ ] All code for this step is in `step-07-multi-tenancy/` and pushed to your fork
 - [ ] No secrets are committed (`.dev.vars.example` only, and no Neon connection strings)
 - [ ] The server is deployed to your own Cloudflare account and the `/mcp` URL works

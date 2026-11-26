@@ -1,34 +1,37 @@
-# Build and Sell MCP Apps: Hands-On CCDV-F Prep
+# Build and Sell MCP Apps: The CCDV-F Bootcamp Part I
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/hero-light.png">
-  <img src="assets/hero-light.png" alt="Build and Sell MCP Apps: Claude and ChatGPT connect to your multi-tenant MCP server on Cloudflare Workers, backed by Neon with row-level security, pgvector, Durable Objects, Queues and Workflows" width="100%">
+  <img src="assets/hero-light.png" alt="Build and Sell MCP Apps, the CCDV-F Bootcamp Part I: Claude and ChatGPT connect to your multi-tenant MCP server on Cloudflare Workers, backed by Neon with row-level security, pgvector, Durable Objects, Queues and Workflows" width="100%">
 </picture>
 
-Welcome, readers of [The AI Agent Factory](https://agentfactory.panaversity.org/)! If you have finished your study for [PCAO-F](https://agentfactory.panaversity.org/appendices/exams/associate-foundations/overview/) (Panaversity Certified Associate: Foundations), congratulations: you already know how to work with AI agents and manage the work they do. Now it's time to build. This repo is your hands-on preparation for **CCDV-F** (Claude Certified Developer: Foundations), Anthropic's developer exam, and for **PCDV-F** (Panaversity Certified Developer: Foundations), the Panaversity exam that mirrors it. Just as important, it teaches you to monetize these skills in the international market: building MCP apps for paying clients as a **Forward Deployed Engineer (FDE)** or for your own startup.
+Welcome, readers of [The AI Agent Factory](https://agentfactory.panaversity.org/)! If you have finished your study for [PCAO-F](https://agentfactory.panaversity.org/appendices/exams/associate-foundations/overview/) (Panaversity Certified Associate: Foundations), congratulations: you already know how to work with AI agents and manage the work they do. Now it's time to build. This bootcamp is your hands-on preparation for **CCDV-F** (Claude Certified Developer: Foundations), Anthropic's developer exam, and for **PCDV-F** (Panaversity Certified Developer: Foundations), the Panaversity exam that mirrors it. Just as important, it teaches you to monetize these skills in the international market: building MCP apps for paying clients as a **Forward Deployed Engineer (FDE)** or for your own startup.
+
+> [!TIP]
+> **💰 On a budget?** Start with our student guide **[Affordable Agentic AI Development](docs/affordable-agentic-ai.md)**: which AI tools are free, what is worth paying for, and how to compare costs before you buy. See also [What it costs](#what-it-costs) for this bootcamp.
 
 MCP turns two! Anthropic released the Model Context Protocol in November 2024. What started as a way to connect AI apps to tools and data is now becoming the standard for how agents communicate and orchestrate work. MCP also standardizes interactive apps that render inside the chat, through the MCP Apps extension.
 
-MCP's second year was about agents. The [2026-07-28 spec](https://modelcontextprotocol.io/specification/2026-07-28/changelog) made the protocol stateless, with no sessions, so a server runs behind any load balancer, and new features now arrive as optional extensions that clients adopt one at a time. On MCP's second birthday (November 24, 2026), Anthropic made Tasks and Elicitation generally available in Claude, put Skills over MCP into public beta, and announced file uploads. In this repo we learn to build **remote MCP servers** that use these capabilities, one small, incremental step at a time.
+MCP's second year was about agents. The [2026-07-28 spec](https://modelcontextprotocol.io/specification/2026-07-28/changelog) made the protocol stateless, with no sessions, so a server runs behind any load balancer, and new features now arrive as optional extensions that clients adopt one at a time. On MCP's second birthday (November 24, 2026), Anthropic made Tasks and Elicitation generally available in Claude, put Skills over MCP into public beta, and announced file uploads. In this bootcamp we learn to build **remote MCP servers** that use these capabilities, one small, incremental step at a time.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/diagram-mcp-timeline-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/diagram-mcp-timeline-light.png">
-  <img src="assets/diagram-mcp-timeline-light.png" alt="Two years of MCP: spec releases from 2024-11-05 to 2026-07-28, project milestones, and the official extensions MCP Apps, Enterprise-Managed Authorization, Skills over MCP beta and Events beta. This course targets spec 2026-07-28." width="100%">
+  <img src="assets/diagram-mcp-timeline-light.png" alt="Two years of MCP: spec releases from 2024-11-05 to 2026-07-28, project milestones, and the official extensions MCP Apps, Enterprise-Managed Authorization, Skills over MCP beta and Events beta. This bootcamp targets spec 2026-07-28." width="100%">
 </picture>
 
 Our north star is **Generative UI + MCP**: AI-native apps built around intent rather than navigation. The model decides what interface to show at runtime, and MCP supplies the tools, data and context behind it. MCP Apps is the open standard that carries that UI into the chat, in both Claude and ChatGPT. ([Generative UI + MCP: The New Stack for AI-Native Applications](https://odsc.medium.com/generative-ui-mcp-the-new-stack-for-ai-native-applications-b62af183f2aa), ODSC, 2026)
 
-This repo is the hands-on companion to the book [The AI Agent Factory, Second Edition](https://agentfactory.panaversity.org/). **You learn by building.** The book teaches the concepts, and this repo is where you practise them: every step ends with something you build, deploy and test yourself in Claude and ChatGPT. Each step's README starts with a **Learn first** section that links the book lessons to study before you build that step. Those lessons all come from **chapters 12 to 20** of the book. Steps 5 to 8 follow chapter 19 (Postgres, row-level security and pgvector on Neon) closely. Where those chapters don't cover a technology yet (Durable Objects, Queues, Workflows and the Events extension), the step says so and links the official docs instead.
+This bootcamp is the hands-on companion to the book [The AI Agent Factory, Second Edition](https://agentfactory.panaversity.org/). **You learn by building.** The book teaches the concepts, and this bootcamp is where you practise them: every step ends with something you build, deploy and test yourself in Claude and ChatGPT. Each step's README starts with a **Learn first** section that links the book lessons to study before you build that step. Those lessons all come from **chapters 12 to 20** of the book. Steps 5 to 8 follow chapter 19 (Postgres, row-level security and pgvector on Neon) closely. Where those chapters don't cover a technology yet (Durable Objects, Queues, Workflows and the Events extension), the step says so and links the official docs instead.
 
-## Why this repo
+## Why this bootcamp
 
 - **A hands-on way of learning.** You don't learn MCP here by reading or watching. You read the concepts in the book, then build them into a real, deployed MCP server, one small step at a time. By the end, everything you know, you have built yourself.
-- **Hands-on preparation for CCDV-F.** This repo is hands-on preparation for **CCDV-F** (Claude Certified Developer: Foundations), and for **PCDV-F** (Panaversity Certified Developer: Foundations), which mirrors it. You don't just read about MCP servers: you build, deploy and test one in Claude, step by step. See [Certification and Portfolio Roadmaps](https://agentfactory.panaversity.org/certification-and-portfolio-roadmaps).
+- **Hands-on preparation for CCDV-F.** This bootcamp is hands-on preparation for **CCDV-F** (Claude Certified Developer: Foundations), and for **PCDV-F** (Panaversity Certified Developer: Foundations), which mirrors it. You don't just read about MCP servers: you build, deploy and test one in Claude, step by step. See [Certification and Portfolio Roadmaps](https://agentfactory.panaversity.org/certification-and-portfolio-roadmaps).
 - **Skills you can monetize in the international market.** Building MCP servers and MCP Apps is work clients around the world pay for today. Every step builds toward a client-ready product, and the capstone is a portfolio piece you can show to clients and employers, whether you work as an FDE or build your own startup.
 - **Part of the FDE 2027 Master Plan.** It is one piece of [The FDE 2027 Master Plan](https://agentfactory.panaversity.org/fde-2027-master-plan) covered in the book, which trains Forward Deployed Engineers (FDEs) and the next generation of AI startup founders.
-- **MCP Apps, one of the book's two products.** The book teaches you to build two kinds of products: **MCP Apps** and **AI Workers that improve themselves**. This repo covers **MCP Apps**.
+- **MCP Apps, one of the book's two products.** The book teaches you to build two kinds of products: **MCP Apps** and **AI Workers that improve themselves**. This bootcamp covers **MCP Apps**. Self-improving AI Workers get their own bootcamp, **Build and Sell Self Improving AI Workers: The CCDV-F Bootcamp Part II**, which is under development.
 
 ## Tech stack
 
@@ -65,32 +68,35 @@ This repo is the hands-on companion to the book [The AI Agent Factory, Second Ed
 - **Claude:** Claude Code in Claude Desktop needs a paid Claude plan (Pro or higher).
 - **ChatGPT:** developer mode needs a paid ChatGPT plan that includes it.
 - **Cloudflare and Neon:** most steps fit the free plans. Each step links the product's pricing or limits page; check it before you upgrade, and set a spending alert if you do.
-- **Workers AI:** step 8's embeddings fit the daily free allowance for course-sized documents.
+- **Workers AI:** step 8's embeddings fit the daily free allowance for small documents.
 - **Anthropic API:** from step 17, the automated eval script calls the Claude API, which costs a little per run.
 - **Stripe:** test mode (step 20) is free.
 
+> [!TIP]
+> **Keep your AI costs low.** Read the student guide **[Affordable Agentic AI Development](docs/affordable-agentic-ai.md)**. It covers free and low-cost options (Codex, OpenCode, direct model APIs and local models) and how to compare them before you pay.
+
 ### Set up: fork, clone and sync
 
-This course is also an assignment, and you do all your work in **your own fork** of this repo.
+This bootcamp is also an assignment, and you do all your work in **your own fork** of this repo.
 
 > ⛔ **Do not open pull requests to this repository.** Your work stays in your fork, and you submit through the submission form. Pull requests to `panaversity/learn-mcp` will be closed without review.
 
 **1. Fork the repo.** Sign in to GitHub, open [panaversity/learn-mcp](https://github.com/panaversity/learn-mcp), and click **Fork** (top right). Choose your own account as the owner, keep the name `learn-mcp`, and click **Create fork**.
 
-**2. Clone your fork** (not the original) and add the course repo as `upstream`:
+**2. Clone your fork** (not the original) and add the bootcamp repo as `upstream`:
 
 ```bash
 git clone https://github.com/<your-username>/learn-mcp.git
 cd learn-mcp
 git remote add upstream https://github.com/panaversity/learn-mcp.git
-git remote -v   # origin = your fork, upstream = the course repo
+git remote -v   # origin = your fork, upstream = the bootcamp repo
 ```
 
 **3. Open your fork in Claude Desktop.** Open Claude Desktop, go to the **Code** tab, and choose your cloned `learn-mcp` folder (the repo root) as the folder to work in. Always open the root folder, not a step folder, so the bundled skills load.
 
-> Prefer the terminal? Running `claude` in the repo root gives you the same Claude Code session, but this course's instructions assume Claude Desktop.
+> Prefer the terminal? Running `claude` in the repo root gives you the same Claude Code session, but this bootcamp's instructions assume Claude Desktop.
 
-**4. Keep your fork in sync.** New steps and fixes are added to the course over time. Before starting each step, either click **Sync fork → Update branch** on your fork's GitHub page, or run:
+**4. Keep your fork in sync.** New steps and fixes are added to the bootcamp over time. Before starting each step, either click **Sync fork → Update branch** on your fork's GitHub page, or run:
 
 ```bash
 git checkout main
@@ -99,7 +105,7 @@ git merge upstream/main
 git push origin main
 ```
 
-To avoid merge conflicts, don't edit the course's own files (`README.md`, `AGENTS.md`, `SUBMITTING.md`, `.claude/skills/`, or the `README.md` in each step folder). Put your own notes in a `NOTES.md` inside the step folder.
+To avoid merge conflicts, don't edit the bootcamp's own files (`README.md`, `AGENTS.md`, `SUBMITTING.md`, `.claude/skills/`, or the `README.md` in each step folder). Put your own notes in a `NOTES.md` inside the step folder.
 
 **5. Work, tag and submit.** Build each step in its folder, deploy it to your own Cloudflare (and Neon) accounts, tag it (`git tag step-01-done && git push origin step-01-done`), and submit it through the form. **[SUBMITTING.md](SUBMITTING.md)** has the full details: tagging, keeping secrets out of your public fork, and exactly what to submit for each step.
 
@@ -139,7 +145,7 @@ Each step lives in its own numbered directory and builds on the one before it. E
 | 18 | [`step-18-deploy-and-test/`](step-18-deploy-and-test/) | Deploying and testing on claude.ai, Claude Desktop and ChatGPT | 🚧 Under development |
 | 19 | [`step-19-generative-ui-dashboard/`](step-19-generative-ui-dashboard/) | Generative UI: an intent-driven dashboard, where the model composes a screen from approved widgets and fills it with Neon data | 🚧 Under development |
 | 20 | [`step-20-billing-and-distribution/`](step-20-billing-and-distribution/) | Billing and distribution: Stripe plans, usage limits on every call, and listing in Claude's and ChatGPT's directories | 🚧 Under development |
-| 21 | [`step-21-capstone-mcp-app/`](step-21-capstone-mcp-app/) | Capstone: a complete, client-ready MCP app (Stockroom, or your own client) built from the course's core plus the extras the client needs | 🚧 Under development |
+| 21 | [`step-21-capstone-mcp-app/`](step-21-capstone-mcp-app/) | Capstone: a complete, client-ready MCP app (Stockroom, or your own client) built from the bootcamp's core plus the extras the client needs | 🚧 Under development |
 
 ### Milestones and pacing
 
@@ -154,7 +160,7 @@ The 21 steps fall into six milestones. Times are rough estimates for a learner w
 | 5. Production | 16 to 18 | 16 to 20 hours | Harden, test, evaluate, observe and release the server safely |
 | 6. A product | 19 to 21 | 35 to 50 hours | Build an intent-driven dashboard, charge each company for it, and deliver a complete client app |
 
-The whole course is about 125 to 164 hours. You don't have to finish it to get value from it, so there are three completion levels:
+The whole bootcamp is about 125 to 164 hours. You don't have to finish it to get value from it, so there are three completion levels:
 
 | Level | Steps | Estimated time | You can show |
 | --- | --- | --- | --- |
@@ -162,11 +168,11 @@ The whole course is about 125 to 164 hours. You don't have to finish it to get v
 | Professional | 1 to 10 | 56 to 70 hours | A multi-tenant server with forced row-level security, cited search and MCP Apps widgets |
 | Advanced | 1 to 21 | 125 to 164 hours | A production, billed, client-ready MCP app |
 
-**Multi-tenancy runs through the whole course.** Every user belongs to a company from step 4, every business row carries it in its keys from step 5, the database enforces it with forced row-level security from step 6, step 7 makes it the server's architecture, step 8 keeps search by meaning inside it, and from step 8 on every step's checklist includes a tenant-isolation check.
+**Multi-tenancy runs through the whole bootcamp.** Every user belongs to a company from step 4, every business row carries it in its keys from step 5, the database enforces it with forced row-level security from step 6, step 7 makes it the server's architecture, step 8 keeps search by meaning inside it, and from step 8 on every step's checklist includes a tenant-isolation check.
 
-### What this course practises for CCDV-F
+### What this bootcamp practises for CCDV-F
 
-The repo is hands-on preparation, not a copy of the exam. Use the official CCDV-F exam guide as the source for the exam's own domains and weights, and use this map to find where you practised each skill. **Direct** rows are developer skills an exam about building with Claude is likely to cover. **Supporting** rows build the skills behind them. **FDE** rows are for client work, not the exam. Finishing the course does not by itself mean you are ready for the exam: check yourself against the official guide.
+The bootcamp is hands-on preparation, not a copy of the exam. Use the official CCDV-F exam guide as the source for the exam's own domains and weights, and use this map to find where you practised each skill. **Direct** rows are developer skills an exam about building with Claude is likely to cover. **Supporting** rows build the skills behind them. **FDE** rows are for client work, not the exam. Finishing the bootcamp does not by itself mean you are ready for the exam: check yourself against the official guide.
 
 | Skill | Kind | Steps |
 | --- | --- | --- |

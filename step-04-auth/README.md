@@ -6,7 +6,7 @@ Protect the server so that only signed-in users can use it, and so that every to
 
 ## Learn first
 
-This repo is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
+This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
 
 - [18.1 Who is calling?](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/who-is-calling/). Why a shared key is not enough.
 - [18.2 Sign-in in one picture](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/sign-in-in-one-picture/). The parties in OAuth and the flow that starts with the first 401.
@@ -94,7 +94,7 @@ Every step is built with **Claude Code in Claude Desktop**. Follow the instructi
 **1. Open the repo's root folder in the Code tab of Claude Desktop so the bundled skills load, then copy your step 3 code into `step-04-auth/`.**
 
 ```text
-Copy my step-03 code into step-04-auth/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the course's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-04 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds.
+Copy my step-03 code into step-04-auth/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the bootcamp's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-04 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds.
 ```
 
 **2. Switch to plan mode and plan the auth.**
@@ -152,9 +152,9 @@ Read Better Auth's SSO plugin docs and the "sign in with your company (SSO)" sec
 
 ## Submission checklist
 
-Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ Do not open a pull request to the course repo.
+Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ Do not open a pull request to the bootcamp repo.
 
-- [ ] Your fork is synced with the course repo
+- [ ] Your fork is synced with the bootcamp repo
 - [ ] All code for this step is in `step-04-auth/` and pushed to your fork
 - [ ] No secrets are committed (`.dev.vars.example` only)
 - [ ] The server is deployed to your own Cloudflare account and the `/mcp` URL works

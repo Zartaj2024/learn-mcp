@@ -6,7 +6,7 @@ Some work is too big or too slow for one tool call but splits into many small, i
 
 ## Learn first
 
-This repo is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
+This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
 
 > **Note:** The book doesn't cover Cloudflare Queues yet. The lessons below give the ideas this step relies on: work that is safe to repeat, and errors that say what to do next. Use the [Queues docs](https://developers.cloudflare.com/queues/) for the feature itself.
 
@@ -80,7 +80,7 @@ Every step is built with **Claude Code in Claude Desktop**. Follow the instructi
 **1. Open the repo's root folder in the Code tab of Claude Desktop so the bundled skills load, then copy your step 11 code into `step-12-queues/`.**
 
 ```text
-Copy my step-11 code into step-12-queues/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the course's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-12 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds. Then create a Neon branch named step-12 from my step-11 branch and point this step's database settings (the connection string in .dev.vars and as a secret, and Hyperdrive once the server uses it) at the new branch, so my earlier steps keep working while they are graded.
+Copy my step-11 code into step-12-queues/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the bootcamp's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-12 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds. Then create a Neon branch named step-12 from my step-11 branch and point this step's database settings (the connection string in .dev.vars and as a secret, and Hyperdrive once the server uses it) at the new branch, so my earlier steps keep working while they are graded.
 ```
 
 **2. Switch to plan mode and plan the import.**
@@ -126,9 +126,9 @@ Deploy, then give me a sample CSV with a few deliberately bad rows and prompts t
 
 ## Submission checklist
 
-Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ Do not open a pull request to the course repo.
+Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ Do not open a pull request to the bootcamp repo.
 
-- [ ] Your fork is synced with the course repo
+- [ ] Your fork is synced with the bootcamp repo
 - [ ] All code for this step is in `step-12-queues/` and pushed to your fork
 - [ ] No secrets are committed (`.dev.vars.example` only)
 - [ ] The server is deployed to your own Cloudflare account and the `/mcp` URL works

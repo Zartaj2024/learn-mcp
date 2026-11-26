@@ -8,7 +8,7 @@ Handle work that takes longer than a single request, such as reports, imports an
 
 ## Learn first
 
-This repo is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
+This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
 
 > **Note:** The book covers the Tasks extension in one section of lesson 20.15 and as an optional lab task, not in a full lesson yet. Use the [MCP Tasks docs](https://modelcontextprotocol.io/extensions/tasks/overview) to fill the gaps.
 
@@ -84,7 +84,7 @@ Every step is built with **Claude Code in Claude Desktop**. Follow the instructi
 **1. Open the repo's root folder in the Code tab of Claude Desktop so the bundled skills load, then copy your step 13 code into `step-14-tasks/`.**
 
 ```text
-Copy my step-13 code into step-14-tasks/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the course's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-14 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds. Then create a Neon branch named step-14 from my step-13 branch and point this step's database settings (the connection string in .dev.vars and as a secret, and Hyperdrive once the server uses it) at the new branch, so my earlier steps keep working while they are graded.
+Copy my step-13 code into step-14-tasks/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the bootcamp's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-14 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds. Then create a Neon branch named step-14 from my step-13 branch and point this step's database settings (the connection string in .dev.vars and as a secret, and Hyperdrive once the server uses it) at the new branch, so my earlier steps keep working while they are graded.
 ```
 
 **2. Check the Tasks extension's current client support, then plan.**
@@ -124,9 +124,9 @@ Add tests that a task ID from another company is refused and that cancelling a t
 
 ## Submission checklist
 
-Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ Do not open a pull request to the course repo.
+Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ Do not open a pull request to the bootcamp repo.
 
-- [ ] Your fork is synced with the course repo
+- [ ] Your fork is synced with the bootcamp repo
 - [ ] All code for this step is in `step-14-tasks/` and pushed to your fork
 - [ ] No secrets are committed (`.dev.vars.example` only)
 - [ ] The server is deployed to your own Cloudflare account and the `/mcp` URL works

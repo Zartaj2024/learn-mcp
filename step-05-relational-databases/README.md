@@ -6,7 +6,7 @@ Give your remote MCP server a real business database, and learn to design one we
 
 ## Learn first
 
-This repo is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
+This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
 
 - [19.1 Why a database now](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/why-a-database-now/). Why business data moves into a database server, separate from the sign-in data.
 - [19.2 Tables, rows and keys, from zero](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/tables-rows-and-keys-from-zero/). Tables, columns, primary and foreign keys, and the three shapes of query.
@@ -92,7 +92,7 @@ Every step is built with **Claude Code in Claude Desktop**. Follow the instructi
 **1. Open the repo's root folder in the Code tab of Claude Desktop so the bundled skills load, then copy your step 4 code into `step-05-relational-databases/`.**
 
 ```text
-Copy my step-04 code into step-05-relational-databases/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the course's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-05 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds.
+Copy my step-04 code into step-05-relational-databases/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the bootcamp's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-05 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds.
 ```
 
 **2. Create a Neon project in the Neon console, then switch to plan mode and plan the change.**
@@ -138,9 +138,9 @@ Apply the migrations to a fresh Neon branch, set the secret, deploy, and give me
 
 ## Submission checklist
 
-Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ Do not open a pull request to the course repo.
+Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ Do not open a pull request to the bootcamp repo.
 
-- [ ] Your fork is synced with the course repo
+- [ ] Your fork is synced with the bootcamp repo
 - [ ] All code for this step is in `step-05-relational-databases/` and pushed to your fork
 - [ ] No secrets are committed (`.dev.vars.example` only, and no Neon connection string)
 - [ ] The server is deployed to your own Cloudflare account and the `/mcp` URL works

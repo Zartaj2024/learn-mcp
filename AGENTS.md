@@ -4,15 +4,16 @@ Guidance for AI coding agents (Claude Code, Codex, Cursor and others) working in
 
 ## What this repo is
 
-**Build and Sell MCP Apps: Hands-On CCDV-F Prep** (repo `learn-mcp`) is a hands-on course that teaches developers to build **remote MCP servers** in small, incremental steps. It is a companion to [The AI Agent Factory, Second Edition](https://agentfactory.panaversity.org/) by Panaversity.
+**Build and Sell MCP Apps: The CCDV-F Bootcamp Part I** (repo `learn-mcp`) is a hands-on bootcamp that teaches developers to build **remote MCP servers** in small, incremental steps. It is a companion to [The AI Agent Factory, Second Edition](https://agentfactory.panaversity.org/) by Panaversity.
 
-- **Teaching principle: learn by building.** This repo teaches a hands-on way of learning. The book gives the concepts, and the repo is where learners practise them. Every step must end with something the learner builds, deploys and tests themselves in Claude (and ChatGPT). Don't add steps or sections that are only reading or explanation; link the book for theory and keep the step focused on building.
+- **Name:** call this program a **bootcamp** ("The CCDV-F Bootcamp Part I"; its sequel on self-improving AI Workers, under development, is "Build and Sell Self Improving AI Workers: The CCDV-F Bootcamp Part II"), not a course, workbook or lab. "Lab" is reserved for the book's in-chapter exercises (for example Lab 20b). Use "repo" only for the Git repository itself (forking, the repo root, files).
+- **Teaching principle: learn by building.** This bootcamp teaches a hands-on way of learning. The book gives the concepts, and the bootcamp is where learners practise them. Every step must end with something the learner builds, deploys and tests themselves in Claude (and ChatGPT). Don't add steps or sections that are only reading or explanation; link the book for theory and keep the step focused on building.
 - **North star:** *Generative UI + MCP*. Apps are built around user intent rather than navigation. The model decides which interface to show at runtime, and the MCP server supplies the tools, data, skills and governance behind it.
-- **Why it exists:** this repo is hands-on preparation for the CCDV-F exam (Claude Certified Developer: Foundations) and its Panaversity mirror, PCDV-F, and for monetizing these skills in the international market. It is part of [The FDE 2027 Master Plan](https://agentfactory.panaversity.org/fde-2027-master-plan) in the book. The book teaches two products, MCP Apps and self-improving AI Workers, and **this repo covers MCP Apps only**, so keep AI Worker topics out. Learners should come away able to build MCP servers and apps for paying international clients, as FDEs or for their own startups, and ready for CCDV-F. Favour realistic, client-ready examples over toy ones.
-- **Companion book:** this repo is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Each step's `## Learn first` section links the book lessons (URL pattern `https://agentfactory.panaversity.org/building-ai-workers/<chapter>/<lesson>/`). The book is updated continuously, so check that links still resolve when you edit a step, and keep the step and the book consistent.
+- **Why it exists:** this bootcamp is hands-on preparation for the CCDV-F exam (Claude Certified Developer: Foundations) and its Panaversity mirror, PCDV-F, and for monetizing these skills in the international market. It is part of [The FDE 2027 Master Plan](https://agentfactory.panaversity.org/fde-2027-master-plan) in the book. The book teaches two products, MCP Apps and self-improving AI Workers, and **this bootcamp covers MCP Apps only**, so keep AI Worker topics out; they belong in Part II. Learners should come away able to build MCP servers and apps for paying international clients, as FDEs or for their own startups, and ready for CCDV-F. Favour realistic, client-ready examples over toy ones.
+- **Companion book:** this bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Each step's `## Learn first` section links the book lessons (URL pattern `https://agentfactory.panaversity.org/building-ai-workers/<chapter>/<lesson>/`). The book is updated continuously, so check that links still resolve when you edit a step, and keep the step and the book consistent.
 - **Book edition:** link only to the current (second) edition at `agentfactory.panaversity.org`. **Never use or link `agentfactory1.panaversity.org`**, which is the deprecated first edition, and never link a page that redirects there (old `/docs/...` paths do). Check that every book link loads directly before adding it.
-- **Book chapters:** the course draws only on **chapters 12 to 20** of the book. `Learn first` links must come from those chapters. Where they don't cover a technology (for example Durable Objects, Queues, Workflows or the Events extension), say so in a note and link the official docs instead. Links in the root README that aren't lessons (the PCAO-F appendix, the FDE plan, the certification roadmaps) may stay.
-- **Audience:** learners who have already passed PCAO-F (Panaversity Certified Associate: Foundations) and now prepare for CCDV-F (and its Panaversity mirror, PCDV-F), and who follow the steps with Claude Code in the **Code** tab of Claude Desktop. The course is standardized on Claude Desktop, so write instructions for it, and mention the `claude` CLI only as an optional fallback. Every change should make the course easier to follow, not just make the code work.
+- **Book chapters:** the bootcamp draws only on **chapters 12 to 20** of the book. `Learn first` links must come from those chapters. Where they don't cover a technology (for example Durable Objects, Queues, Workflows or the Events extension), say so in a note and link the official docs instead. Links in the root README that aren't lessons (the PCAO-F appendix, the FDE plan, the certification roadmaps) may stay.
+- **Audience:** learners who have already passed PCAO-F (Panaversity Certified Associate: Foundations) and now prepare for CCDV-F (and its Panaversity mirror, PCDV-F), and who follow the steps with Claude Code in the **Code** tab of Claude Desktop. The bootcamp is standardized on Claude Desktop, so write instructions for it, and mention the `claude` CLI only as an optional fallback. Every change should make the bootcamp easier to follow, not just make the code work.
 - **Status:** every step is currently **under development**. Each step folder has a planning README, and the code is still to come.
 
 ## Target clients
@@ -54,7 +55,7 @@ Don't introduce another language, host, auth library or database without a maint
 ```
 .
 ├── AGENTS.md                 # this file
-├── README.md                 # course overview and roadmap
+├── README.md                 # bootcamp overview and roadmap
 ├── SUBMITTING.md             # how students fork, tag and submit
 ├── LICENSE                   # MIT
 ├── .gitignore                # keeps node_modules, .wrangler and .dev.vars out of forks
@@ -95,12 +96,12 @@ Don't introduce another language, host, auth library or database without a maint
 - Keep the running example consistent: a notes server stored in Workers KV (steps 2 to 4, per-user from step 4) that grows into a sales-data server on Neon (step 5 onward) and ends in the generative UI dashboard (step 19). The step 21 capstone is a new product (Stockroom by default) built from a required core plus at least two extras the student justifies; keep its requirements table (with its Core or extra column) in sync when a step is added or removed. Never keep data in a Worker's memory between requests (book lesson 17.4).
 - Each step deploys as its own Worker named `learn-mcp-step-NN` (e.g. `learn-mcp-step-03`), so earlier steps stay live while they are graded.
 - **One Neon branch per step.** From step 5, each step uses its own Neon branch (`step-NN`), created from the previous step's branch by the copy prompt in steps 6 to 20, so a later migration never breaks an earlier step that is still being graded. The capstone (step 21) starts a new Neon project or branch.
-- Each step's first Claude Code prompt copies the previous step's code into the new folder, skipping the course's `README.md`, `NOTES.md`, `node_modules/`, `.wrangler/`, `dist/` and `.dev.vars`, and renames the Worker. Keep that prompt when editing a step.
+- Each step's first Claude Code prompt copies the previous step's code into the new folder, skipping the bootcamp's `README.md`, `NOTES.md`, `node_modules/`, `.wrangler/`, `dist/` and `.dev.vars`, and renames the Worker. Keep that prompt when editing a step.
 - Prompts must never ask Claude to write or edit a step's `README.md`. Learner write-ups go in `NOTES.md` in the step folder.
 
 ## Multi-tenancy
 
-Multi-tenancy is a first-class theme of this course, because the servers learners build for clients serve many companies. Keep these rules in every step:
+Multi-tenancy is a first-class theme of this bootcamp, because the servers learners build for clients serve many companies. Keep these rules in every step:
 
 - **Where the tenant comes from.** The company (`orgId`), user, role and tier are resolved once per request by step 7's tenant module. The company comes only from the verified token, chosen when the user connects; there is no switch-company tool. Membership and role are re-checked against the database on every request, so removal or demotion takes effect on the next call. No tool, resource or prompt ever takes a company or user ID as input.
 - **Data.** Every business row carries `org_id`. Shared-tier companies use shared tables with row-level security, set per transaction (step 6); enterprise companies may get a dedicated Neon database behind the tenant router (step 7). Tools never know which tier they use, and migrations run across every tenant database.
@@ -160,9 +161,9 @@ If a step's `package.json` defines different scripts, follow that file. When you
 
 - `build-mcp-server`: the entry point for deployment model, tool design, auth and references.
 - `build-mcp-app`: MCP Apps widgets, iframe sandbox and payload budgeting.
-- `build-mcpb`: packaging local servers as bundles. This course mostly builds remote servers, so it is rarely needed.
+- `build-mcpb`: packaging local servers as bundles. This bootcamp mostly builds remote servers, so it is rarely needed.
 
-Use these skills when building steps. **Don't edit the vendored files.** Note that the vendored `build-mcp-server` Cloudflare reference (`references/deploy-cloudflare-workers.md`, last verified upstream 2026-03) still shows the deprecated `McpAgent` class. This course uses `createMcpHandler` instead, and the step prompts say so explicitly; keep them that way until upstream catches up. To update them, follow `.claude/skills/README.md`.
+Use these skills when building steps. **Don't edit the vendored files.** Note that the vendored `build-mcp-server` Cloudflare reference (`references/deploy-cloudflare-workers.md`, last verified upstream 2026-03) still shows the deprecated `McpAgent` class. This bootcamp uses `createMcpHandler` instead, and the step prompts say so explicitly; keep them that way until upstream catches up. To update them, follow `.claude/skills/README.md`.
 
 ## Writing step READMEs
 
@@ -212,7 +213,7 @@ This repo is a student assignment. Students **fork** it, work in their fork, and
 - If you are helping a student in their fork, commit and push to *their fork's* `origin` only.
 - Each finished step is tagged `step-NN-done` (e.g. `step-01-done`) and pushed to the fork.
 - Students deploy to their own Cloudflare and Neon accounts. Never hard-code a maintainer's account IDs, URLs or secrets.
-- Students shouldn't edit course-owned files (`README.md`, `AGENTS.md`, `SUBMITTING.md`, `.claude/skills/`, step `README.md` files), because that causes conflicts when they sync their fork. Their notes go in `NOTES.md` inside the step folder.
+- Students shouldn't edit bootcamp-owned files (`README.md`, `AGENTS.md`, `SUBMITTING.md`, `.claude/skills/`, step `README.md` files), because that causes conflicts when they sync their fork. Their notes go in `NOTES.md` inside the step folder.
 - Every step README ends with a `## Submission checklist`, placed before `## References`. Keep it when editing a step.
 - Grading follows the rubric in `SUBMITTING.md` (section 9). Keep it consistent with the steps' submission checklists, and keep the form link a clearly marked placeholder until the maintainer supplies it.
 

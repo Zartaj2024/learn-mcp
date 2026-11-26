@@ -8,7 +8,7 @@ Build one complete, client-ready MCP app with the simplest design that meets a c
 
 ## Learn first
 
-This repo is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
+This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
 
 - [17.5 When to write your own connector](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/built-in-custom-skill-or-connector/). Deciding what the client actually needs before building.
 - [20.16 How the pieces fit](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/how-the-pieces-fit/). Core MCP plus extensions as one connector, and the common mistakes.
@@ -33,10 +33,10 @@ Every earlier step taught one technology on the same sales server, with the prom
 
 ## Why this technology in an MCP server: The right ones, together
 
-- **What it is.** The capstone combines the course's core technologies with the extras a real client needs. The requirements table below marks each feature as core or extra, and maps it to the technology and step that teaches it.
+- **What it is.** The capstone combines the bootcamp's core technologies with the extras a real client needs. The requirements table below marks each feature as core or extra, and maps it to the technology and step that teaches it.
 - **Why an MCP server uses it.** Each technology solves a different problem for an MCP server: Workers make it reachable, resources and prompts give users data and starting points, OAuth says who is calling, Neon holds the business data, pgvector searches it by meaning, KV caches it, MCP Apps shows it, skills teach the model the job, Durable Objects keep exact per-user state, Queues and Workflows run long work, Tasks and Events give that work a standard face, security hardening, tests and environments keep it safe and reliable, and billing and directory listing make it a product.
 - **What it solves.** A real client's problem, end to end, in the AI apps they already use.
-- **Alternatives.** Use the simplest piece that meets each requirement, and say why in NOTES.md. An extra you add without a client need costs points, because clients pay for a product they can run, not for a tour of the course. A client on another cloud may need other hosting or databases, but the MCP design (tools, auth, widgets, skills, tasks and events) carries over unchanged.
+- **Alternatives.** Use the simplest piece that meets each requirement, and say why in NOTES.md. An extra you add without a client need costs points, because clients pay for a product they can run, not for a tour of the bootcamp. A client on another cloud may need other hosting or databases, but the MCP design (tools, auth, widgets, skills, tasks and events) carries over unchanged.
 
 ## What you will learn
 
@@ -107,7 +107,7 @@ Every step is built with **Claude Code in Claude Desktop**. Follow the instructi
 **1. Open the repo's root folder in the Code tab of Claude Desktop so the bundled skills load, then copy your step 20 code into `step-21-capstone-mcp-app/` as a starting skeleton.**
 
 ```text
-Copy my step-20 code into step-21-capstone-mcp-app/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the course's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-21 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds. Don't change any features yet.
+Copy my step-20 code into step-21-capstone-mcp-app/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the bootcamp's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-21 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds. Don't change any features yet.
 ```
 
 **2. Switch to plan mode and design the product.**
@@ -165,9 +165,9 @@ Help me write CLIENT.md for a real small business, or a classmate playing one: d
 
 ## Submission checklist
 
-Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ Do not open a pull request to the course repo.
+Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ Do not open a pull request to the bootcamp repo.
 
-- [ ] Your fork is synced with the course repo
+- [ ] Your fork is synced with the bootcamp repo
 - [ ] All code for this step is in `step-21-capstone-mcp-app/` and pushed to your fork
 - [ ] No secrets are committed (`.dev.vars.example` only)
 - [ ] The server is deployed to your own Cloudflare account and the `/mcp` URL works

@@ -6,7 +6,7 @@ Tools are only one of the three things an MCP server can offer. **Resources** ar
 
 ## Learn first
 
-This repo is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
+This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
 
 - [17.1 MCP in one picture](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/mcp-in-one-picture/). Where tools, resources and prompts sit between the AI app and the server.
 - [Field guide F8, The protocol in detail](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/field-guide-connectors/#f8-the-protocol-in-detail). Resources (data with a fixed name that the host decides to use) and prompts (templates a person picks).
@@ -75,7 +75,7 @@ Every step is built with **Claude Code in Claude Desktop**. Follow the instructi
 **1. Open the repo's root folder in the Code tab of Claude Desktop so the bundled skills load, then copy your step 2 code into `step-03-resources-and-prompts/`.**
 
 ```text
-Copy my step-02 code into step-03-resources-and-prompts/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the course's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-03 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds.
+Copy my step-02 code into step-03-resources-and-prompts/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the bootcamp's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-03 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds.
 ```
 
 **2. Switch to plan mode and plan the change.**
@@ -116,9 +116,9 @@ Deploy, then tell me how to attach a note as a resource and run each prompt in c
 
 ## Submission checklist
 
-Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ Do not open a pull request to the course repo.
+Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ Do not open a pull request to the bootcamp repo.
 
-- [ ] Your fork is synced with the course repo
+- [ ] Your fork is synced with the bootcamp repo
 - [ ] All code for this step is in `step-03-resources-and-prompts/` and pushed to your fork
 - [ ] No secrets are committed (`.dev.vars.example` only)
 - [ ] The server is deployed to your own Cloudflare account and the `/mcp` URL works

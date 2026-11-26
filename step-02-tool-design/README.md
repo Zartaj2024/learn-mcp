@@ -6,7 +6,7 @@ Learn to design tools that models use correctly. That means clear names and desc
 
 ## Learn first
 
-This repo is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
+This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
 
 - [17.2 A tool is its description](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/a-tool-is-its-description/). The model chooses tools from their names, descriptions and schemas.
 - [17.3 Errors that say what to do next](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/errors-that-say-what-to-do-next/). Writing errors the model can recover from.
@@ -23,7 +23,7 @@ This repo is the hands-on companion to [The AI Agent Factory](https://agentfacto
 
 ## Why this step matters
 
-A server is only as good as the model's ability to use it. Poorly described or overly broad tools lead to wrong calls, wasted tokens and confused users. Tool design matters more than anything else in this course, and the later steps (database, UI, tasks) all depend on it.
+A server is only as good as the model's ability to use it. Poorly described or overly broad tools lead to wrong calls, wasted tokens and confused users. Tool design matters more than anything else in this bootcamp, and the later steps (database, UI, tasks) all depend on it.
 
 ## Why this technology in an MCP server: Good tool design, and Workers KV for shared state
 
@@ -79,7 +79,7 @@ Every step is built with **Claude Code in Claude Desktop**. Follow the instructi
 **1. Open the repo's root folder in the Code tab of Claude Desktop so the bundled skills load, then copy your step 1 code into `step-02-tool-design/`.**
 
 ```text
-Copy my step-01 code into step-02-tool-design/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the course's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-02 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds.
+Copy my step-01 code into step-02-tool-design/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the bootcamp's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-02 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds.
 ```
 
 **2. Review how the tools are defined today.**
@@ -125,9 +125,9 @@ Deploy, then give me five realistic prompts to try in Claude and ChatGPT that ch
 
 ## Submission checklist
 
-Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ Do not open a pull request to the course repo.
+Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ Do not open a pull request to the bootcamp repo.
 
-- [ ] Your fork is synced with the course repo
+- [ ] Your fork is synced with the bootcamp repo
 - [ ] All code for this step is in `step-02-tool-design/` and pushed to your fork
 - [ ] No secrets are committed (`.dev.vars.example` only)
 - [ ] The server is deployed to your own Cloudflare account and the `/mcp` URL works

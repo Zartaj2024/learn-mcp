@@ -6,7 +6,7 @@ Build and deploy the smallest useful remote MCP server: one tool, written in Typ
 
 ## Learn first
 
-This repo is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
+This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
 
 - [12.1 From a chat to a coding agent](https://agentfactory.panaversity.org/building-ai-workers/agentic-coding/from-chat-to-coding-agent/). How to drive Claude Code to build the server.
 - [14.7 JSON and REST APIs](https://agentfactory.panaversity.org/building-ai-workers/structuring-programs/json-and-rest-apis/). MCP is JSON over HTTP, so you'll read a lot of requests and responses.
@@ -23,19 +23,19 @@ This repo is the hands-on companion to [The AI Agent Factory](https://agentfacto
 - [MCP Inspector](https://modelcontextprotocol.io/docs/2026-07-28/tools/inspector). Testing your server before connecting a client.
 - [Cloudflare Workers: get started](https://developers.cloudflare.com/workers/get-started/guide/). Creating, running and deploying a Worker.
 - [Cloudflare: Model Context Protocol](https://developers.cloudflare.com/agents/model-context-protocol/). Cloudflare's guide to remote MCP servers.
-- [Cloudflare: MCP handler API (`createMcpHandler`)](https://developers.cloudflare.com/agents/model-context-protocol/apis/handler-api/). The stateless handler this course uses to serve `/mcp`. (The older `McpAgent` class is deprecated, so don't follow tutorials that use it.)
+- [Cloudflare: MCP handler API (`createMcpHandler`)](https://developers.cloudflare.com/agents/model-context-protocol/apis/handler-api/). The stateless handler this bootcamp uses to serve `/mcp`. (The older `McpAgent` class is deprecated, so don't follow tutorials that use it.)
 - [Cloudflare: workers.dev routes](https://developers.cloudflare.com/workers/configuration/routing/workers-dev/). Where your public `/mcp` URL comes from.
 
 ## Why this step matters
 
-Everything else in this course builds on a server that is reachable over the internet. Before adding auth, databases or UI, we want the full loop working end to end: write a tool, deploy it, connect a client, and watch the model call it.
+Everything else in this bootcamp builds on a server that is reachable over the internet. Before adding auth, databases or UI, we want the full loop working end to end: write a tool, deploy it, connect a client, and watch the model call it.
 
 ## Why this technology in an MCP server: Cloudflare Workers and Streamable HTTP
 
 - **What it is.** Cloudflare Workers run your TypeScript on Cloudflare's global network. Streamable HTTP is the MCP transport that lets a client talk to a server over an ordinary HTTPS URL, here `/mcp`.
 - **Why an MCP server uses it.** claude.ai, Claude Desktop connectors and ChatGPT all connect to **remote** MCP servers by URL. A remote server is installed once and used by every client and every user, with nothing to install on their computers. Workers give you that URL with no server to manage, start instantly, scale down to zero when idle, and have a free plan, which suits a server that may get ten calls a day or ten thousand.
 - **What it solves.** A local (stdio) server only runs on one person's computer and can't be reached from claude.ai on the web or from ChatGPT. A remote server can, so it can serve paying clients.
-- **Alternatives.** Node.js on a container or VM (Fly.io, Render, Google Cloud Run), or serverless functions on Vercel or AWS Lambda. For tools that must touch a user's own files or apps, a local server packaged as an MCPB bundle. The book and this course standardize on Cloudflare.
+- **Alternatives.** Node.js on a container or VM (Fly.io, Render, Google Cloud Run), or serverless functions on Vercel or AWS Lambda. For tools that must touch a user's own files or apps, a local server packaged as an MCPB bundle. The book and this bootcamp standardize on Cloudflare.
 
 ## What you will learn
 
@@ -89,7 +89,7 @@ Use the build-mcp-server skill. I want a minimal remote MCP server in TypeScript
 **2. Approve the plan, then let Claude scaffold the project.**
 
 ```text
-Scaffold the project in step-01-hello-world/: package.json, tsconfig, wrangler config and the server entry point. Name the Worker learn-mcp-step-01 and expose the MCP endpoint at /mcp. Leave the existing README.md in that folder unchanged, because it belongs to the course. Explain each file in one or two sentences.
+Scaffold the project in step-01-hello-world/: package.json, tsconfig, wrangler config and the server entry point. Name the Worker learn-mcp-step-01 and expose the MCP endpoint at /mcp. Leave the existing README.md in that folder unchanged, because it belongs to the bootcamp. Explain each file in one or two sentences.
 ```
 
 **3. Add the first tools.**
@@ -125,7 +125,7 @@ Give me step-by-step instructions to add this server as a custom connector in cl
 **8. Commit when everything works.**
 
 ```text
-Review the code for anything unclear or unnecessary. Then write a short NOTES.md in step-01-hello-world/ explaining how to run, test and deploy this server (don't touch README.md, which belongs to the course), and commit with a descriptive message.
+Review the code for anything unclear or unnecessary. Then write a short NOTES.md in step-01-hello-world/ explaining how to run, test and deploy this server (don't touch README.md, which belongs to the bootcamp), and commit with a descriptive message.
 ```
 
 ## Testing targets
@@ -135,9 +135,9 @@ Review the code for anything unclear or unnecessary. Then write a short NOTES.md
 
 ## Submission checklist
 
-Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ Do not open a pull request to the course repo.
+Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ Do not open a pull request to the bootcamp repo.
 
-- [ ] Your fork is synced with the course repo
+- [ ] Your fork is synced with the bootcamp repo
 - [ ] All code for this step is in `step-01-hello-world/` and pushed to your fork
 - [ ] No secrets are committed (`.dev.vars.example` only)
 - [ ] The server is deployed to your own Cloudflare account and the `/mcp` URL works

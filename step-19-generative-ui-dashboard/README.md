@@ -2,11 +2,11 @@
 
 > 🚧 **Under development.** This step is being written. The plan below shows what it will cover, and the code and instructions are coming soon.
 
-Put the course's north star to work on the sales server. A user asks in plain language, for example "show me last quarter's sales forecast", and the model chooses and fills the right widget with live Neon data, in both Claude and ChatGPT.
+Put the bootcamp's north star to work on the sales server. A user asks in plain language, for example "show me last quarter's sales forecast", and the model chooses and fills the right widget with live Neon data, in both Claude and ChatGPT.
 
 ## Learn first
 
-This repo is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
+This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
 
 - [20.10 Screens the AI designs](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/screens-the-ai-designs/). Fixed, approved-parts and open screens. This is the core of generative UI.
 - [20.16 How the pieces fit](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/how-the-pieces-fit/). Core MCP plus extensions as one connector, and common mistakes.
@@ -22,7 +22,7 @@ This repo is the hands-on companion to [The AI Agent Factory](https://agentfacto
 
 ## Why this step matters
 
-This is the course's north star, Generative UI + MCP: an app built around intent instead of navigation. The interface comes out of the user's request, and MCP supplies the tools, data, skills and governance behind it. It is also the last step on the sales server before the step 21 capstone, where you build a new product from the same parts.
+This is the bootcamp's north star, Generative UI + MCP: an app built around intent instead of navigation. The interface comes out of the user's request, and MCP supplies the tools, data, skills and governance behind it. It is also the last step on the sales server before the step 21 capstone, where you build a new product from the same parts.
 
 ## Why this technology in an MCP server: Generative UI
 
@@ -72,7 +72,7 @@ Every step is built with **Claude Code in Claude Desktop**. Follow the instructi
 **1. Open the repo's root folder in the Code tab of Claude Desktop so the bundled skills load, then copy your step 18 code into `step-19-generative-ui-dashboard/`.**
 
 ```text
-Copy my step-18 code into step-19-generative-ui-dashboard/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the course's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-19 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds. Then create a Neon branch named step-19 from my step-18 branch and point this step's database settings (the connection string in .dev.vars and as a secret, and Hyperdrive once the server uses it) at the new branch, so my earlier steps keep working while they are graded.
+Copy my step-18 code into step-19-generative-ui-dashboard/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the bootcamp's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-19 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds. Then create a Neon branch named step-19 from my step-18 branch and point this step's database settings (the connection string in .dev.vars and as a secret, and Hyperdrive once the server uses it) at the new branch, so my earlier steps keep working while they are graded.
 ```
 
 **2. Switch to plan mode and design the dashboard.**
@@ -102,7 +102,7 @@ Write an evaluation script of 20 realistic prompts with the expected tool and wi
 **6. Reflect and polish.**
 
 ```text
-Summarize where generative UI worked well and where a fixed UI would have been better, then write it up in step-19-generative-ui-dashboard/NOTES.md (leave the course's README.md unchanged).
+Summarize where generative UI worked well and where a fixed UI would have been better, then write it up in step-19-generative-ui-dashboard/NOTES.md (leave the bootcamp's README.md unchanged).
 ```
 
 ## Testing targets
@@ -112,9 +112,9 @@ Summarize where generative UI worked well and where a fixed UI would have been b
 
 ## Submission checklist
 
-Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ Do not open a pull request to the course repo.
+Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ Do not open a pull request to the bootcamp repo.
 
-- [ ] Your fork is synced with the course repo
+- [ ] Your fork is synced with the bootcamp repo
 - [ ] All code for this step is in `step-19-generative-ui-dashboard/` and pushed to your fork
 - [ ] No secrets are committed (`.dev.vars.example` only)
 - [ ] The server is deployed to your own Cloudflare account and the `/mcp` URL works

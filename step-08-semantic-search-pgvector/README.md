@@ -6,7 +6,7 @@ Clients' questions are often about their documents, not their tables: "can I giv
 
 ## Learn first
 
-This repo is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
+This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
 
 - [19.13 Retrieval from zero](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/retrieval-from-zero/). Passages, embeddings, vectors, similarity search and an index, with every search kept inside one company.
 - [19.14 Embeddings and pgvector in depth: predict, then run](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/embeddings-and-pgvector-in-depth/). Cosine distance, what embeddings miss, search by words beside search by meaning, and what a vector costs.
@@ -94,7 +94,7 @@ Every step is built with **Claude Code in Claude Desktop**. Follow the instructi
 **1. Open the repo's root folder in the Code tab of Claude Desktop so the bundled skills load, then copy your step 7 code into `step-08-semantic-search-pgvector/`.**
 
 ```text
-Copy my step-07 code into step-08-semantic-search-pgvector/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the course's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-08 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds. Then create a Neon branch named step-08 from my step-07 branch and point this step's database settings (the connection string in .dev.vars and as a secret, and Hyperdrive once the server uses it) at the new branch, so my earlier steps keep working while they are graded.
+Copy my step-07 code into step-08-semantic-search-pgvector/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the bootcamp's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-08 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds. Then create a Neon branch named step-08 from my step-07 branch and point this step's database settings (the connection string in .dev.vars and as a secret, and Hyperdrive once the server uses it) at the new branch, so my earlier steps keep working while they are graded.
 ```
 
 **2. Switch to plan mode and plan retrieval.**
@@ -147,9 +147,9 @@ Show me with EXPLAIN whether a search uses a vector index at this size, add an H
 
 ## Submission checklist
 
-Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ Do not open a pull request to the course repo.
+Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ Do not open a pull request to the bootcamp repo.
 
-- [ ] Your fork is synced with the course repo
+- [ ] Your fork is synced with the bootcamp repo
 - [ ] All code for this step is in `step-08-semantic-search-pgvector/` and pushed to your fork
 - [ ] No secrets are committed (`.dev.vars.example` only, and no Neon connection strings or API tokens)
 - [ ] The server is deployed to your own Cloudflare account and the `/mcp` URL works
