@@ -36,7 +36,11 @@ npx wrangler login
 npm run deploy
 ```
 
-The public URL is `https://learn-mcp-step-01.<your-subdomain>.workers.dev/mcp`. Add it as a custom remote connector in claude.ai, Claude Desktop and ChatGPT developer mode.
+The deployed MCP endpoint is:
+
+`https://learn-mcp-step-01.zartajalichanna25.workers.dev/mcp`
+
+I verified it with MCP Inspector: `tools/list` returns `greet` and `get_time`, and both tools return text plus structured content when called on the public URL. Add that endpoint as a custom remote connector in claude.ai, Claude Desktop and ChatGPT developer mode.
 
 No secrets are needed in this step, so `.dev.vars.example` is only a template for later steps.
 
