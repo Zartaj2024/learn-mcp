@@ -184,8 +184,8 @@ One row: `Karachi Foods | 500`. `WHERE` removes order 12 (total 50) before the r
 
 **If not, study these book sections, then take the test again:**
 
-- [19.2 Tables, rows and keys, from zero](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/tables-rows-and-keys-from-zero/). Tables, primary keys and foreign keys.
-- [19.3 Reading SQL, "Block 2. A join gives one row for every match"](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/reading-sql/#block-2-a-join-gives-one-row-for-every-match). `JOIN`, as in the test.
+- [19.2 What are tables, rows and keys?](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/tables-rows-and-keys-from-zero/). Tables, primary keys and foreign keys.
+- [19.3 How do you read SQL an agent wrote? "Block 2. A join gives one row for every match"](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/reading-sql/#block-2-a-join-gives-one-row-for-every-match). `JOIN`, as in the test.
 - [19.3, "Block 3. Count rows, or count values"](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/reading-sql/#block-3-count-rows-or-count-values). `GROUP BY` and `sum`.
 
 ### 6. Keeping secrets safe

@@ -17,7 +17,7 @@ This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentf
 - [18.4 Two guards for the code](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/two-guards-for-the-code/). Two independent checks for every rule that matters.
 - [20.5 Hidden is not protected](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/hidden-is-not-protected/) and [20.7 Untrusted text on the screen](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/untrusted-text-on-the-screen/). What a widget must never rely on, and showing text you didn't write safely.
 - [Field guide F8, More input during a call](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/field-guide-connectors/#more-input-during-a-call). How a stateless tool asks for a confirmation, and why the state it sends back must be protected.
-- *Optional:* [19.10 Where the guarantee stops](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/where-the-guarantee-stops/). Where row-level security stops protecting you.
+- *Optional:* [19.10 What can still leak when the rows are safe?](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/where-the-guarantee-stops/). Where row-level security stops protecting you.
 
 **Official docs.** Keep these open while you build:
 

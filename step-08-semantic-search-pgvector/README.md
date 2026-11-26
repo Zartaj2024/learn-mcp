@@ -10,12 +10,12 @@ Clients' questions are often about their documents, not their tables: "can I giv
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
 
-- [19.13 Retrieval from zero](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/retrieval-from-zero/). Passages, embeddings, vectors, similarity search and an index, with every search kept inside one company.
-- [19.14 Embeddings and pgvector in depth: predict, then run](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/embeddings-and-pgvector-in-depth/). Cosine distance, what embeddings miss, search by words beside search by meaning, and what a vector costs.
-- [19.15 Answers that cite, or abstain](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/answers-that-cite-or-abstain/). Citations, a threshold, and saying plainly when the documents don't answer.
-- [19.16 Measuring retrieval](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/measuring-retrieval/). A fixed question set that fails the build before a user sees a wrong citation.
+- [19.13 How does a search find a rule by its meaning?](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/retrieval-from-zero/). Passages, embeddings, vectors, similarity search and an index, with every search kept inside one company.
+- [19.14 Where does a search by meaning go wrong?](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/embeddings-and-pgvector-in-depth/). Cosine distance, what embeddings miss, search by words beside search by meaning, and what a vector costs.
+- [19.15 What if the policies do not answer the question?](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/answers-that-cite-or-abstain/). Citations, a threshold, and saying plainly when the documents don't answer.
+- [19.16 How do you know the search still works?](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/measuring-retrieval/). A fixed question set that fails the build before a user sees a wrong citation.
 - [Field guide F4, Embeddings and vectors from zero](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/field-guide-business-data-and-retrieval/#f4-embeddings-and-vectors-from-zero). The book's model (`bge-m3` on Workers AI, 1,024 dimensions), its free allowance, and a test embedder for CI.
-- *Refresh:* [19.8 Row-level security](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/row-level-security/) and [19.9 One company per transaction](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/one-company-per-transaction/). Passages and embeddings live under the same rules as every other row.
+- *Refresh:* [19.8 What if a query forgets its company filter?](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/row-level-security/) and [19.9 What if the last call's company is still set?](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/one-company-per-transaction/). Passages and embeddings live under the same rules as every other row.
 
 **Official docs.** Keep these open while you build:
 

@@ -14,8 +14,8 @@ This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentf
 
 - [17.4 Stateless servers](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/stateless-servers/). Why background work can't live in the Worker's memory.
 - [17.3 Errors that say what to do next](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/errors-that-say-what-to-do-next/). Reporting rows that failed so the model and the user can fix them.
-- [19.17 A database behind a stateless server](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/a-database-behind-a-stateless-server/). Writing to Neon from many short-lived consumers.
-- [19.6 Changing the tables safely](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/changing-the-tables-safely/). Applying each change once, which is the same idea as an idempotent consumer.
+- [19.17 What if the database is slow or asleep?](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/a-database-behind-a-stateless-server/). Writing to Neon from many short-lived consumers.
+- [19.6 How do you change tables that are in use?](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/changing-the-tables-safely/). Applying each change once, which is the same idea as an idempotent consumer.
 - [14.8 Async and await](https://agentfactory.panaversity.org/building-ai-workers/structuring-programs/async-and-await/). Work that finishes after the reply.
 
 **Official docs.** Keep these open while you build:

@@ -10,13 +10,13 @@ Give your remote MCP server a real business database, and learn to design one we
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
 
-- [19.1 Why a database now](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/why-a-database-now/). Why business data moves into a database server, separate from the sign-in data.
-- [19.2 Tables, rows and keys, from zero](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/tables-rows-and-keys-from-zero/). Tables, columns, primary and foreign keys, and the three shapes of query.
-- [19.3 Reading SQL: predict, then run](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/reading-sql/). Reading SQL before you trust it, including SQL a coding agent writes.
-- [19.5 Third normal form in detail: keep it, break it on purpose](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/third-normal-form-in-detail/). Normal forms from zero, then 3NF in detail, and when to keep a copy on purpose.
+- [19.1 Why move the data out of the code?](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/why-a-database-now/). Why business data moves into a database server, separate from the sign-in data.
+- [19.2 What are tables, rows and keys?](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/tables-rows-and-keys-from-zero/). Tables, columns, primary and foreign keys, and the three shapes of query.
+- [19.3 How do you read SQL an agent wrote?](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/reading-sql/). Reading SQL before you trust it, including SQL a coding agent writes.
+- [19.5 Where does each fact belong?](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/third-normal-form-in-detail/). Normal forms from zero, then 3NF in detail, and when to keep a copy on purpose.
 - [Field guide F5, The SQL in detail](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/field-guide-business-data-and-retrieval/#f5-the-sql-in-detail). The SQL reference, with first, second and third normal form side by side.
 - [Field guide F1, Postgres from zero](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/field-guide-business-data-and-retrieval/#f1-postgres-from-zero) and [F2, Neon from zero](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/field-guide-business-data-and-retrieval/#f2-neon-from-zero). Setting up Postgres on Neon.
-- [19.6 Changing the tables safely](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/changing-the-tables-safely/). Numbered migrations, applied once and in order.
+- [19.6 How do you change tables that are in use?](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/changing-the-tables-safely/). Numbered migrations, applied once and in order.
 - *Optional:* [18.8 Tables, rows and relationships](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/tables-rows-and-relationships/). The same ideas at reading depth, if you want a gentler start.
 
 **Official docs.** Keep these open while you build:

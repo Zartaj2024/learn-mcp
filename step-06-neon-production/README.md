@@ -10,12 +10,12 @@ Your server already reads a well-designed schema from Neon. Now make its data ac
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
 
-- [19.17 A database behind a stateless server](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/a-database-behind-a-stateless-server/). Connecting a Worker to Postgres without exhausting connections.
-- [19.8 Row-level security](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/row-level-security/). Letting the database enforce whose rows a query may see.
-- [19.9 One company per transaction](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/one-company-per-transaction/). Setting the owner for one transaction only, so a pooled connection never leaks it.
+- [19.17 What if the database is slow or asleep?](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/a-database-behind-a-stateless-server/). Connecting a Worker to Postgres without exhausting connections.
+- [19.8 What if a query forgets its company filter?](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/row-level-security/). Letting the database enforce whose rows a query may see.
+- [19.9 What if the last call's company is still set?](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/one-company-per-transaction/). Setting the owner for one transaction only, so a pooled connection never leaks it.
 - [Field guide F3, Hyperdrive from zero](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/field-guide-business-data-and-retrieval/#f3-hyperdrive-from-zero). Pooling Postgres connections for Workers.
-- [19.10 Where the guarantee stops](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/where-the-guarantee-stops/). Seven things that happen outside row-level security (keys, error messages, roles that skip it, exports, caches, logs) and the rule that closes each.
-- [19.12 Proving the data stays apart](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/proving-the-data-stays-apart/). A data matrix that tries every table from another company, with planted bugs it must catch.
+- [19.10 What can still leak when the rows are safe?](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/where-the-guarantee-stops/). Seven things that happen outside row-level security (keys, error messages, roles that skip it, exports, caches, logs) and the rule that closes each.
+- [19.12 How do you prove the data stays apart?](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/proving-the-data-stays-apart/). A data matrix that tries every table from another company, with planted bugs it must catch.
 
 **Official docs.** Keep these open while you build:
 

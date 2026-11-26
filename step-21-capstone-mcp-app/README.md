@@ -15,7 +15,7 @@ This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentf
 - [17.5 When to write your own connector](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/built-in-custom-skill-or-connector/). Deciding what the client actually needs before building.
 - [20.16 How the pieces fit](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/how-the-pieces-fit/). Core MCP plus extensions as one connector, and the common mistakes.
 - [18.9 What a tenant is](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/what-a-tenant-is/). A product serves many companies, and each company's people and data stay apart.
-- [19.7 Three ways to keep data apart](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/three-ways-to-keep-data-apart/). Choosing how tenants are separated in Neon.
+- [19.7 Shared tables, or a database per company?](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/three-ways-to-keep-data-apart/). Choosing how tenants are separated in Neon.
 - [20.17 Charging and the screen](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/charging-and-the-screen/). Turning the app into something a client pays for.
 - [Lab 20b, a full interactive app](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/lab-review-workspace/). A worked example of a full app, end to end.
 - *Optional:* [17.10 Watching a connector](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/watching-a-connector/). Knowing what the app is doing once real users arrive.
