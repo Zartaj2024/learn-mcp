@@ -1,0 +1,6 @@
+# Copy this file to .dev.vars for local development and replace the placeholder.
+# Never commit a real .dev.vars file or a real secret.
+BETTER_AUTH_SECRET=replace-with-a-long-random-value
+# Optional. Defaults to the request origin when omitted.
+BETTER_AUTH_URL=http://localhost:8787
+MCP_RESOURCE_URL=http://localhost:8787/mcp

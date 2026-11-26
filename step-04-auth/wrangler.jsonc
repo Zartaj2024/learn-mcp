@@ -1,0 +1,24 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "learn-mcp-step-04",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-08-22",
+  "vars": {
+    "BETTER_AUTH_URL": "https://learn-mcp-step-04.zartajalichanna25.workers.dev",
+    "MCP_RESOURCE_URL": "https://learn-mcp-step-04.zartajalichanna25.workers.dev/mcp"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "NOTES",
+      "id": "f99426d823c84644a4673fb89b751a40"
+    }
+  ],
+  "d1_databases": [
+    {
+      "binding": "AUTH_DB",
+      "database_name": "learn-mcp-step-04-auth",
+      "database_id": "92522f6c-007e-4639-bd94-a06cb3929f11",
+      "migrations_dir": "migrations"
+    }
+  ]
+}

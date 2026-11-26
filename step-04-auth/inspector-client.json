@@ -1,0 +1,10 @@
+{
+  "client_id": "https://cdn.jsdelivr.net/gh/Zartaj2024/learn-mcp@main/step-04-auth/inspector-client.json",
+  "client_name": "Stockroom MCP Inspector",
+  "client_uri": "https://github.com/Zartaj2024/learn-mcp/tree/main/step-04-auth",
+  "redirect_uris": ["http://127.0.0.1:6276/oauth/callback"],
+  "token_endpoint_auth_method": "none",
+  "grant_types": ["authorization_code", "refresh_token"],
+  "response_types": ["code"],
+  "scope": "openid profile email offline_access"
+}
