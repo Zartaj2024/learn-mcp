@@ -4,6 +4,8 @@
 
 Prove the server works, keep proving it on every change, and see what it does once real users arrive. You add automated tests that run the Worker the way Cloudflare does, integration tests that call the server over MCP, an **eval set** that checks the model picks the right tool and widget for realistic requests in Claude and ChatGPT, and structured logs, traces and metrics on Cloudflare.
 
+> 🏬 **Stockroom's ask:** Stockroom ships changes every week and can't afford a reworded tool description that silently breaks a customer's workflow. It wants tests, evals and logs that catch it first.
+
 ## Learn first
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
@@ -73,11 +75,11 @@ A test suite (unit, integration and isolation tests), an `evals/` folder with 30
 
 ## Build it with Claude Code
 
-Every step is built with **Claude Code in Claude Desktop**. Follow the instructions in order and paste each prompt into the **Code** tab of Claude Desktop. Read what Claude proposes before you approve it, because understanding the code is the point. The bundled `build-mcp-server`, `build-mcp-app` and `build-mcpb` skills load automatically in this repo.
+Every step is built with **Claude in a thread of your bootcamp's Claude project**, working on your local clone (see [How we work](../README.md#how-we-work-local-first-human-in-the-loop)). Follow the instructions in order and paste each prompt into the thread. Read what Claude proposes before you approve it, because understanding the code is the point. Claude never commits or pushes: you review the changes, then commit and push them in GitHub Desktop. The prompts use Anthropic's `build-mcp-server` and `build-mcp-app` skills (see [Built-in skills](../README.md#built-in-skills)).
 
 > These prompts are a draft and will be refined as the step is developed.
 
-**1. Open the repo's root folder in the Code tab of Claude Desktop so the bundled skills load, then copy your step 16 code into `step-17-testing-and-observability/`.**
+**1. Start a new thread for this step in your bootcamp's Claude project, then copy your step 16 code into `step-17-testing-and-observability/`.**
 
 ```text
 Copy my step-16 code into step-17-testing-and-observability/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the bootcamp's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-17 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds. Then create a Neon branch named step-17 from my step-16 branch and point this step's database settings (the connection string in .dev.vars and as a secret, and Hyperdrive once the server uses it) at the new branch, so my earlier steps keep working while they are graded.
@@ -131,7 +133,7 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] Tenant isolation: the cross-tenant suite runs in CI on every push
 - [ ] It works in claude.ai or Claude Desktop
 - [ ] It works in ChatGPT (developer mode)
-- [ ] Tagged and pushed: `git tag step-17-done && git push origin step-17-done`
+- [ ] Tagged `step-17-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
 - [ ] Submitted in the form: fork URL, tag `step-17-done`, live server URL, and screenshots of passing CI, your eval results, and a trace of a tool call from **Claude** or **ChatGPT**
 
 ## References

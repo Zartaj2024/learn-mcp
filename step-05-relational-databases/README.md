@@ -4,6 +4,8 @@
 
 Give your remote MCP server a real business database, and learn to design one well while you do it. The server connects to Neon Postgres, its migrations create a sales schema that you take from a messy spreadsheet through the first three normal forms (1NF, 2NF and 3NF), and new read-only tools let Claude and ChatGPT explore the schema, answer business questions from it and show why normalization matters. Auth stays in D1, and the KV notes tools from steps 2 to 4 are replaced by sales data.
 
+> 🏬 **Stockroom's ask:** Notes aren't enough. Stockroom's customers want to ask about their sales ("who bought the most last month?"), and their history arrives as a messy spreadsheet. You design a proper sales database in Neon that the model can answer from.
+
 ## Learn first
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
@@ -85,11 +87,11 @@ The step 4 server, now backed by Neon. Its migrations load a flat spreadsheet of
 
 ## Build it with Claude Code
 
-Every step is built with **Claude Code in Claude Desktop**. Follow the instructions in order and paste each prompt into the **Code** tab of Claude Desktop. Read what Claude proposes before you approve it, because understanding the code is the point. The bundled `build-mcp-server`, `build-mcp-app` and `build-mcpb` skills load automatically in this repo. In this step, ask Claude to explain every SQL statement, and predict each result before you run it.
+Every step is built with **Claude in a thread of your bootcamp's Claude project**, working on your local clone (see [How we work](../README.md#how-we-work-local-first-human-in-the-loop)). Follow the instructions in order and paste each prompt into the thread. Read what Claude proposes before you approve it, because understanding the code is the point. Claude never commits or pushes: you review the changes, then commit and push them in GitHub Desktop. The prompts use Anthropic's `build-mcp-server` and `build-mcp-app` skills (see [Built-in skills](../README.md#built-in-skills)). In this step, ask Claude to explain every SQL statement, and predict each result before you run it.
 
 > These prompts are a draft and will be refined as the step is developed.
 
-**1. Open the repo's root folder in the Code tab of Claude Desktop so the bundled skills load, then copy your step 4 code into `step-05-relational-databases/`.**
+**1. Start a new thread for this step in your bootcamp's Claude project, then copy your step 4 code into `step-05-relational-databases/`.**
 
 ```text
 Copy my step-04 code into step-05-relational-databases/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the bootcamp's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-05 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds.
@@ -148,7 +150,7 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] NOTES.md has the 1NF, 2NF and 3NF walkthrough and the ER diagram
 - [ ] It works in claude.ai or Claude Desktop
 - [ ] It works in ChatGPT (developer mode)
-- [ ] Tagged and pushed: `git tag step-05-done && git push origin step-05-done`
+- [ ] Tagged `step-05-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
 - [ ] Submitted in the form: fork URL, tag `step-05-done`, live server URL, and screenshots of the model explaining your schema and answering a business question in **Claude** and **ChatGPT**
 
 ## References

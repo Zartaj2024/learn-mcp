@@ -33,12 +33,22 @@ This bootcamp is the hands-on companion to the book [The AI Agent Factory, Secon
 - **Part of the FDE 2027 Master Plan.** It is one piece of [The FDE 2027 Master Plan](https://agentfactory.panaversity.org/fde-2027-master-plan) covered in the book, which trains Forward Deployed Engineers (FDEs) and the next generation of AI startup founders.
 - **MCP Apps, one of the book's two products.** The book teaches you to build two kinds of products: **MCP Apps** and **AI Workers that improve themselves**. This bootcamp covers **MCP Apps**. Self-improving AI Workers get their own bootcamp, **Build and Sell Self Improving AI Workers: The CCDV-F Bootcamp Part II**, which is under development.
 
+## Your client: Stockroom
+
+Every step in this bootcamp is client work, so every step has a business reason. Your client is **Stockroom**, a fictional startup that sells AI-native back-office software to small distributors and retailers, and it has hired you as its Forward Deployed Engineer. Stockroom's customers are companies, each with its own staff and data, which is why everything you build serves many companies at once and keeps them apart.
+
+- **Steps 1 to 20** build Stockroom's first product, a sales assistant that its customers' staff use from Claude and ChatGPT. It starts as one tool, becomes account notes for sales reps, grows into each customer's sales data on Neon, and ends as an intent-driven sales dashboard that Stockroom charges for.
+- **Step 21**, the capstone, builds Stockroom's next product, an inventory and purchasing app, from a brief instead of ready-made prompts. You may bring a client of your own instead.
+
+Each step's README opens with **🏬 Stockroom's ask**: what the client needs from that step, and why. Read it first, because it is the reason behind every decision in the step.
+
 ## Tech stack
 
 | Area | Choice |
 | --- | --- |
 | Language | TypeScript |
-| Development | Claude Code in [Claude Desktop](https://claude.com/download) (**Code** tab) |
+| Development | Claude in a Claude project (threads) in [the Claude app](https://claude.com/download), working on your local clone; the **Code** tab of Claude Desktop as a fallback |
+| Git and GitHub | GitHub Desktop: you review, commit and push, never Claude |
 | Hosting | Cloudflare (Workers) |
 | MCP server | Cloudflare's stateless [`createMcpHandler`](https://developers.cloudflare.com/agents/model-context-protocol/apis/handler-api/) with MCP SDK v2 |
 | Auth | [Better Auth](https://better-auth.com/), with companies and roles through its [organization](https://better-auth.com/docs/plugins/organization) plugin and single sign-on (SSO) through its open-source [`@better-auth/sso`](https://better-auth.com/docs/plugins/sso) plugin |
@@ -56,8 +66,9 @@ This bootcamp is the hands-on companion to the book [The AI Agent Factory, Secon
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) (current LTS) and npm
-- [Claude Desktop](https://claude.com/download), signed in with a Claude plan that includes Claude Code. You'll work in its **Code** tab.
+- [Node.js](https://nodejs.org/) 24 or later (an LTS release) and npm
+- [GitHub Desktop](https://desktop.github.com/download/), signed in to your GitHub account. You'll use it to clone, commit, tag and push, beside Claude Code (which may also run git itself, with your approval). Install [Git](https://git-scm.com/downloads) too, because Claude Code uses it.
+- [Claude Desktop](https://claude.com/download), signed in with a Pro plan or higher, which includes Claude Code and Claude projects. You'll work in a Claude project with your local folder added (see [How we work](#how-we-work-local-first-human-in-the-loop)).
 - A [Cloudflare](https://dash.cloudflare.com/sign-up) account
 - A [Neon](https://neon.com/) account
 - The same Claude account, to connect and test your servers in Claude Desktop and claude.ai
@@ -75,6 +86,18 @@ This bootcamp is the hands-on companion to the book [The AI Agent Factory, Secon
 > [!TIP]
 > **Keep your AI costs low.** Read the student guide **[Affordable Agentic AI Development](docs/affordable-agentic-ai.md)**. It covers free and low-cost options (Codex, OpenCode, direct model APIs and local models) and how to compare them before you pay.
 
+### How we work: local first, human in the loop
+
+This bootcamp follows the way Panaversity's own team works: Claude does most of the work on your computer, and you decide what reaches GitHub.
+
+1. **Clone your fork to your computer** with GitHub Desktop ([Set up](#set-up-fork-clone-and-sync) below).
+2. **Make a Claude project for the bootcamp.** In the Claude app, create a project, add your local `learn-mcp` folder to it, and add your GitHub fork (`<your-username>/learn-mcp`) as its repository. A project has a coordinator you brief in its main chat, threads that do the work, and settings for its instructions, connectors, plugins and model ([Projects redesigned](https://claude.com/resources/articles/projects-redesigned), Anthropic). In the project's instructions, write: *"Work in my local clone of learn-mcp. Read AGENTS.md first. Never commit or push: I review, commit and push in GitHub Desktop."*
+3. **Work in threads.** Start a thread in the project for each step and paste the step's prompts into it. Claude edits the files in your local folder and runs commands on your computer after you approve them.
+4. **You commit, not Claude.** Read the changes, then commit, tag and push them yourself in GitHub Desktop. If you use a branch in your own fork, open its pull request in GitHub Desktop or on github.com, inside your fork only, never to the bootcamp repo. Nothing reaches GitHub until a person has read it: that is the human in the loop.
+5. **Long jobs while your computer is off.** Work in your local folder stops when your computer sleeps or the lid is closed. For a long-running task, start a cloud session on your GitHub fork instead. It runs on Anthropic's computers, and its work comes back to your fork as a branch that you review, pull and merge yourself. Plugins you installed in the app don't load in a cloud session, but the skills still work there, because the session runs on a copy of your fork, and the fork carries them in [`.claude/skills/`](.claude/skills/). Start it as a cloud session on the fork itself, not as a thread of your project, because project threads don't load a repo's skills.
+
+> **Good to know.** Claude projects are in beta for Pro and Max subscribers and are still rolling out; if you don't have them yet, join the waitlist linked from Anthropic's [Projects redesigned](https://claude.com/resources/articles/projects-redesigned) article. Anthropic's article doesn't give menu names, so the wording here describes the steps in general terms. Threads work directly on the local folder you add to the project, on your computer. (Anthropic's article was written when threads ran only in the cloud; local folders came after it.) Threads don't load the repo's bundled skills on their own (book lesson [12.8](https://agentfactory.panaversity.org/building-ai-workers/agentic-coding/both-ai-vendors/#the-details-tool-by-tool)), so add them to your Claude account once, under **Customize → Plugins** or **Customize → Skills** (see [Built-in skills](#built-in-skills)). If you don't have projects yet, open your local `learn-mcp` folder in the **Code** tab of Claude Desktop instead. Everything else stays the same, including committing in GitHub Desktop.
+
 ### Set up: fork, clone and sync
 
 This bootcamp is also an assignment, and you do all your work in **your own fork** of this repo.
@@ -83,48 +106,47 @@ This bootcamp is also an assignment, and you do all your work in **your own fork
 
 **1. Fork the repo.** Sign in to GitHub, open [panaversity/learn-mcp](https://github.com/panaversity/learn-mcp), and click **Fork** (top right). Choose your own account as the owner, keep the name `learn-mcp`, and click **Create fork**.
 
-**2. Clone your fork** (not the original) and add the bootcamp repo as `upstream`:
+**2. Clone your fork** (not the original). In [GitHub Desktop](https://desktop.github.com/download/), signed in to your GitHub account, choose **File → Clone Repository**, pick `<your-username>/learn-mcp` on the **GitHub.com** tab, choose where to save it, and click **Clone**. When GitHub Desktop asks how you plan to use this fork, choose **For my own purposes**, because you never send work back to the bootcamp repo.
 
-```bash
-git clone https://github.com/<your-username>/learn-mcp.git
-cd learn-mcp
-git remote add upstream https://github.com/panaversity/learn-mcp.git
-git remote -v   # origin = your fork, upstream = the bootcamp repo
-```
+**3. Set up your Claude project.** Create a project, add your cloned `learn-mcp` folder (the repo root, not a step folder) and your GitHub fork, and add the project instructions, as in [How we work](#how-we-work-local-first-human-in-the-loop).
 
-**3. Open your fork in Claude Desktop.** Open Claude Desktop, go to the **Code** tab, and choose your cloned `learn-mcp` folder (the repo root) as the folder to work in. Always open the root folder, not a step folder, so the bundled skills load.
+> Prefer the terminal? Running `claude` in the repo root gives you a Claude Code session on the same folder, but this bootcamp's instructions assume a Claude project. Claude still doesn't commit.
 
-> Prefer the terminal? Running `claude` in the repo root gives you the same Claude Code session, but this bootcamp's instructions assume Claude Desktop.
-
-**4. Keep your fork in sync.** New steps and fixes are added to the bootcamp over time. Before starting each step, either click **Sync fork → Update branch** on your fork's GitHub page, or run:
-
-```bash
-git checkout main
-git fetch upstream
-git merge upstream/main
-git push origin main
-```
+**4. Keep your fork in sync.** New steps and fixes are added to the bootcamp over time. Before starting each step, click **Sync fork → Update branch** on your fork's GitHub page, then click **Fetch origin** and **Pull origin** in GitHub Desktop to bring the update to your computer.
 
 To avoid merge conflicts, don't edit the bootcamp's own files (`README.md`, `AGENTS.md`, `SUBMITTING.md`, `.claude/skills/`, or the `README.md` in each step folder). Put your own notes in a `NOTES.md` inside the step folder.
 
-**5. Work, tag and submit.** Build each step in its folder, deploy it to your own Cloudflare (and Neon) accounts, tag it (`git tag step-01-done && git push origin step-01-done`), and submit it through the form. **[SUBMITTING.md](SUBMITTING.md)** has the full details: tagging, keeping secrets out of your public fork, and exactly what to submit for each step.
+**5. Work, tag and submit.** Build each step in its folder, deploy it to your own Cloudflare (and Neon) accounts, commit and tag it in GitHub Desktop (in **History**, right-click the commit, choose **Create Tag…** and name it `step-01-done`, then click **Push origin**), and submit it through the form. **[SUBMITTING.md](SUBMITTING.md)** has the full details: tagging, keeping secrets out of your public fork, and exactly what to submit for each step.
 
 ### Built-in skills
 
-Opening this repo in the Code tab of Claude Desktop gives you Anthropic's MCP server development skills automatically, with nothing to install:
+The bootcamp's prompts use Anthropic's MCP server development skills:
 
 - **`build-mcp-server`**: the starting point. It helps you choose a deployment model and design your tools.
 - **`build-mcp-app`**: adds interactive UI (forms, pickers, dashboards) that renders in the chat.
 - **`build-mcpb`**: packages a local MCP server as an installable bundle.
 
-They live in [`.claude/skills/`](.claude/skills/). Type `/` in the Code tab's prompt box to see them.
+They live in [`.claude/skills/`](.claude/skills/). In the **Code** tab of Claude Desktop they load automatically when you open the repo root. A thread in a Claude project doesn't load a repo's skills (book lesson [12.8](https://agentfactory.panaversity.org/building-ai-workers/agentic-coding/both-ai-vendors/#the-details-tool-by-tool)), so add them to your Claude account once.
+
+**Add the skills to your Claude account** (so every thread has them):
+
+1. In **Settings → Capabilities**, make sure **Code execution and file creation** is on (in newer versions of the app it is called **Create and edit files**). Skills need it.
+2. **Easiest: install the plugin.** Open **Customize → Plugins**, find Anthropic's `mcp-server-dev` plugin on the **Discover** tab, and install it. Its three skills then appear under **Customize → Skills**, labelled with the plugin's name, and turn on and off with the plugin.
+3. **Or upload them yourself.** Zip each skill's folder from [`.claude/skills/`](.claude/skills/) (for example `build-mcp-server/`). Then open **Customize → Skills**, click **+**, choose **+ Create skill**, then **Upload a skill**, and upload the ZIP. Repeat for each skill, and turn each one on.
+
+Then type `/` in a thread's prompt box: you should see `build-mcp-server`, `build-mcp-app` and `build-mcpb`. Anthropic's help pages: [Use skills in Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude) and [Skills overview](https://claude.com/docs/skills/overview). Menu names are from those pages as of November 2026 and may change.
+
+**In a cloud session** (for long jobs, [How we work](#how-we-work-local-first-human-in-the-loop) step 5), installed plugins don't load, but you don't need them: the session works on a copy of your fork, and the skills come with it from `.claude/skills/`.
 
 ## Roadmap
 
 Each step lives in its own numbered directory and builds on the one before it. Every step is currently **under development**: each folder has a README with the planned content, and the code is coming soon.
 
+Start with **Step 00: Are You Ready? Readiness Check**, a short self-check of the skills every step assumes (Git and GitHub, the terminal, reading TypeScript, HTTP and JSON, SQL basics, secrets and working with Claude in a Claude project). If you pass its seven checks, you go straight to step 1.
+
 | Step | Directory | Topic | Status |
 | --- | --- | --- | --- |
+| 0 | [`step-00-readiness-check/`](step-00-readiness-check/) | Are you ready? Readiness check: seven short tests, with book sections for any you don't pass. Not graded | 🚧 Under development |
 | 1 | [`step-01-hello-world/`](step-01-hello-world/) | Hello world: a minimal remote MCP server on Cloudflare | 🚧 Under development |
 | 2 | [`step-02-tool-design/`](step-02-tool-design/) | Designing good tools | 🚧 Under development |
 | 3 | [`step-03-resources-and-prompts/`](step-03-resources-and-prompts/) | Resources and prompts: the other two MCP primitives, and when to use each instead of a tool | 🚧 Under development |
@@ -149,7 +171,7 @@ Each step lives in its own numbered directory and builds on the one before it. E
 
 ### Milestones and pacing
 
-The 21 steps fall into six milestones. Times are rough estimates for a learner working with Claude Code, including reading the linked lessons. Steps 10, 14 and 15 are lighter, because they teach extensions that clients are still adopting (Claude now supports Tasks and, in beta, Skills over MCP, while Events is still rolling out); build them anyway, with the plain-tool fallback each step describes.
+The 21 steps fall into six milestones, after the step 00 readiness check (about an hour if you pass every check; if you don't, its reading takes 1 to 10 hours per check, see its study-time table). Times are rough estimates for a learner working with Claude Code, including reading the linked lessons. Steps 10, 14 and 15 are lighter, because they teach extensions that clients are still adopting (Claude now supports Tasks and, in beta, Skills over MCP, while Events is still rolling out); build them anyway, with the plain-tool fallback each step describes.
 
 | Milestone | Steps | Estimated time | What you can do at the end |
 | --- | --- | --- | --- |
@@ -194,12 +216,14 @@ The bootcamp is hands-on preparation, not a copy of the exam. Use the official C
 
 Every step is hands-on: you read the linked book lessons, then build the step yourself, deploy it, and test it in Claude and ChatGPT. A step is done only when it works in a real client, not when you have read about it.
 
-Every step is built with Claude Code in Claude Desktop. Each step's README has a **Build it with Claude Code** section with numbered instructions and copy-paste prompts:
+Every step is built with Claude in your bootcamp's Claude project (see [How we work](#how-we-work-local-first-human-in-the-loop)). Each step's README has a **Build it with Claude Code** section with numbered instructions and copy-paste prompts:
 
-1. Open the repo's root folder in the **Code** tab of Claude Desktop so the bundled skills load.
-2. Start in plan mode and let Claude propose a plan before writing code.
+1. Start a new thread for the step in your Claude project.
+2. Let Claude propose a plan before it writes code.
 3. Paste the prompts in order, and review what Claude proposes before approving it.
-4. Deploy and test in Claude and ChatGPT at the end of each step.
+4. Review the changes, then commit and push them yourself in GitHub Desktop. Claude never commits.
+5. Deploy and test in Claude and ChatGPT at the end of each step.
+6. At the end of each milestone, record a short **project defence**: a walkthrough of your own code and one tenant-isolation decision, in your own words (see [SUBMITTING.md](SUBMITTING.md#10-defend-your-project)).
 
 Each step's code lives in its own folder and starts from a copy of the previous step.
 

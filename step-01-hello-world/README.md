@@ -4,6 +4,8 @@
 
 Build and deploy the smallest useful remote MCP server: one tool, written in TypeScript, running on Cloudflare Workers, and connected to Claude and ChatGPT.
 
+> 🏬 **Stockroom's ask:** Meet your client. Throughout this bootcamp you work for **Stockroom**, a fictional startup that sells AI-native back-office software to small distributors and retailers, as its Forward Deployed Engineer (see [Your client: Stockroom](../README.md#your-client-stockroom)). Its first ask is small: Stockroom wants proof that its customers can reach a server of yours from Claude and ChatGPT before it pays for anything bigger. A live `/mcp` URL with two working tools is that proof.
+
 ## Learn first
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
@@ -22,6 +24,7 @@ This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentf
 - [MCP: Tools](https://modelcontextprotocol.io/specification/2026-07-28/server/tools). Tool names, descriptions and input schemas.
 - [MCP Inspector](https://modelcontextprotocol.io/docs/2026-07-28/tools/inspector). Testing your server before connecting a client.
 - [Cloudflare Workers: get started](https://developers.cloudflare.com/workers/get-started/guide/). Creating, running and deploying a Worker.
+- [Cloudflare Workers: TypeScript](https://developers.cloudflare.com/workers/languages/typescript/). Generating types with `wrangler types` and setting up `tsconfig.json`.
 - [Cloudflare: Model Context Protocol](https://developers.cloudflare.com/agents/model-context-protocol/). Cloudflare's guide to remote MCP servers.
 - [Cloudflare: MCP handler API (`createMcpHandler`)](https://developers.cloudflare.com/agents/model-context-protocol/apis/handler-api/). The stateless handler this bootcamp uses to serve `/mcp`. (The older `McpAgent` class is deprecated, so don't follow tutorials that use it.)
 - [Cloudflare: workers.dev routes](https://developers.cloudflare.com/workers/configuration/routing/workers-dev/). Where your public `/mcp` URL comes from.
@@ -71,16 +74,16 @@ A server with a single `greet` tool (and a second `get_time` tool to show more t
 
 ## Prerequisites
 
-- None. This is the first step.
+- [Step 00: Are You Ready? Readiness Check](../step-00-readiness-check/), passed or tested out
 - The tools and accounts listed in the [main README](../README.md#prerequisites)
 
 ## Build it with Claude Code
 
-Every step is built with **Claude Code in Claude Desktop**. Follow the instructions in order and paste each prompt into the **Code** tab of Claude Desktop. Read what Claude proposes before you approve it, because understanding the code is the point. The bundled `build-mcp-server`, `build-mcp-app` and `build-mcpb` skills load automatically in this repo.
+Every step is built with **Claude in a thread of your bootcamp's Claude project**, working on your local clone (see [How we work](../README.md#how-we-work-local-first-human-in-the-loop)). Follow the instructions in order and paste each prompt into the thread. Read what Claude proposes before you approve it, because understanding the code is the point. Claude never commits or pushes: you review the changes, then commit and push them in GitHub Desktop. The prompts use Anthropic's `build-mcp-server` and `build-mcp-app` skills (see [Built-in skills](../README.md#built-in-skills)).
 
 > These prompts are a draft and will be refined as the step is developed.
 
-**1. Open the repo's root folder in the Code tab of Claude Desktop so the bundled skills load, then switch to plan mode so Claude plans before it writes code. All code for this step goes in `step-01-hello-world/`.**
+**1. Start a new thread for this step in your bootcamp's Claude project, and make sure Claude plans before it writes code (the prompt asks it to). All code for this step goes in `step-01-hello-world/`.**
 
 ```text
 Use the build-mcp-server skill. I want a minimal remote MCP server in TypeScript, deployed to Cloudflare Workers over Streamable HTTP, with no auth yet. Serve /mcp with Cloudflare's stateless createMcpHandler (from agents/mcp/server) and MCP SDK v2, following the handler API docs linked in this step, not the deprecated McpAgent class. Create the handler once at module level, and give it a factory that builds a new McpServer and registers the tools on every request. Nothing about a request may be kept in module scope. Ask me any questions you need, then propose a plan and a file layout before writing code.
@@ -89,7 +92,7 @@ Use the build-mcp-server skill. I want a minimal remote MCP server in TypeScript
 **2. Approve the plan, then let Claude scaffold the project.**
 
 ```text
-Scaffold the project in step-01-hello-world/: package.json, tsconfig, wrangler config and the server entry point. Name the Worker learn-mcp-step-01 and expose the MCP endpoint at /mcp. Leave the existing README.md in that folder unchanged, because it belongs to the bootcamp. Explain each file in one or two sentences.
+Scaffold the project in step-01-hello-world/: package.json, tsconfig, wrangler config and the server entry point. Name the Worker learn-mcp-step-01 and expose the MCP endpoint at /mcp. Pin TypeScript 7 and use it only to type-check (noEmit), because Wrangler bundles the code. In tsconfig, use moduleResolution "bundler" and isolatedModules, and list ./worker-configuration.d.ts and node in types (install @types/node). Set compatibility_date in the wrangler config to today's date, with no nodejs_compat flag, because Node.js compatibility is on by default for dates from 2026-08-04. Add a typecheck script that runs wrangler types && tsc. Leave the existing README.md in that folder unchanged, because it belongs to the bootcamp. Explain each file in one or two sentences.
 ```
 
 **3. Add the first tools.**
@@ -122,10 +125,10 @@ Walk me through logging in to Wrangler and deploying this Worker. After deployin
 Give me step-by-step instructions to add this server as a custom connector in claude.ai, Claude Desktop and ChatGPT developer mode, and a test prompt for each that should make the model call `greet`.
 ```
 
-**8. Commit when everything works.**
+**8. Review, then commit in GitHub Desktop.**
 
 ```text
-Review the code for anything unclear or unnecessary. Then write a short NOTES.md in step-01-hello-world/ explaining how to run, test and deploy this server (don't touch README.md, which belongs to the bootcamp), and commit with a descriptive message.
+Review the code for anything unclear or unnecessary. Then write a short NOTES.md in step-01-hello-world/ explaining how to run, test and deploy this server (don't touch README.md, which belongs to the bootcamp). Don't commit: I'll read the diff and commit it myself in GitHub Desktop.
 ```
 
 ## Testing targets
@@ -143,7 +146,7 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] The server is deployed to your own Cloudflare account and the `/mcp` URL works
 - [ ] It works in claude.ai or Claude Desktop
 - [ ] It works in ChatGPT (developer mode)
-- [ ] Tagged and pushed: `git tag step-01-done && git push origin step-01-done`
+- [ ] Tagged `step-01-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
 - [ ] Submitted in the form: fork URL, tag `step-01-done`, live server URL, and screenshots of the model calling `greet` in **Claude** and **ChatGPT**
 
 ## References
@@ -153,4 +156,4 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 
 ---
 
-[Roadmap](../README.md#roadmap) · [Step 02: Designing Good Tools](../step-02-tool-design/) →
+← [Step 00: Are You Ready? Readiness Check](../step-00-readiness-check/) · [Roadmap](../README.md#roadmap) · [Step 02: Designing Good Tools](../step-02-tool-design/) →

@@ -4,6 +4,8 @@
 
 Some state can't wait a minute to be consistent and doesn't belong in the business database: a draft order a user builds over several tool calls, or a count of how many times they called a write tool this minute. Your MCP server keeps that kind of state in Cloudflare Durable Objects. A Durable Object is one named object (for example, one per user) with its own storage, and every request for that name reaches the same object, so reads and writes are strongly consistent. The objects are defined and bound inside the same Worker that serves `/mcp`, and the server's tools call them.
 
+> 🏬 **Stockroom's ask:** Reps build an order over several messages, and one customer's script once hammered the write tools. Stockroom wants a draft order that survives between messages and an exact per-user rate limit.
+
 ## Learn first
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
@@ -71,11 +73,11 @@ A `UserState` Durable Object, one per signed-in user, that holds a draft order a
 
 ## Build it with Claude Code
 
-Every step is built with **Claude Code in Claude Desktop**. Follow the instructions in order and paste each prompt into the **Code** tab of Claude Desktop. Read what Claude proposes before you approve it, because understanding the code is the point. The bundled `build-mcp-server`, `build-mcp-app` and `build-mcpb` skills load automatically in this repo.
+Every step is built with **Claude in a thread of your bootcamp's Claude project**, working on your local clone (see [How we work](../README.md#how-we-work-local-first-human-in-the-loop)). Follow the instructions in order and paste each prompt into the thread. Read what Claude proposes before you approve it, because understanding the code is the point. Claude never commits or pushes: you review the changes, then commit and push them in GitHub Desktop. The prompts use Anthropic's `build-mcp-server` and `build-mcp-app` skills (see [Built-in skills](../README.md#built-in-skills)).
 
 > These prompts are a draft and will be refined as the step is developed.
 
-**1. Open the repo's root folder in the Code tab of Claude Desktop so the bundled skills load, then copy your step 10 code into `step-11-durable-objects/`.**
+**1. Start a new thread for this step in your bootcamp's Claude project, then copy your step 10 code into `step-11-durable-objects/`.**
 
 ```text
 Copy my step-10 code into step-11-durable-objects/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the bootcamp's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-11 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds. Then create a Neon branch named step-11 from my step-10 branch and point this step's database settings (the connection string in .dev.vars and as a secret, and Hyperdrive once the server uses it) at the new branch, so my earlier steps keep working while they are graded.
@@ -133,7 +135,7 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] Tenant isolation: every Durable Object is named from the company and user (`org:<orgId>:user:<userId>`), never from tool input, and the cross-tenant suite still passes
 - [ ] It works in claude.ai or Claude Desktop
 - [ ] It works in ChatGPT (developer mode)
-- [ ] Tagged and pushed: `git tag step-11-done && git push origin step-11-done`
+- [ ] Tagged `step-11-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
 - [ ] Submitted in the form: fork URL, tag `step-11-done`, live server URL, and screenshots of a draft order built over several messages and submitted, plus the rate-limit error, in **Claude** and **ChatGPT**
 
 ## References

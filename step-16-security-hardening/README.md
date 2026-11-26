@@ -4,6 +4,8 @@
 
 Your server now holds business data, acts for signed-in users, runs background jobs and shows screens in the chat, which makes it worth attacking. This step reviews and hardens the whole server against the threats specific to MCP: prompt injection through tool results and widget text, tokens meant for another server, over-powerful tools, unvalidated input, leaked secrets and data that should not leave. You finish with a written threat model and tests that prove each fix.
 
+> 🏬 **Stockroom's ask:** A large retailer's security team sends Stockroom a questionnaire before it will connect anything. Stockroom needs a threat model and proof that each risk is handled.
+
 ## Learn first
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
@@ -81,11 +83,11 @@ A hardened version of the server, plus `SECURITY.md` in the step folder: the thr
 
 ## Build it with Claude Code
 
-Every step is built with **Claude Code in Claude Desktop**. Follow the instructions in order and paste each prompt into the **Code** tab of Claude Desktop. Read what Claude proposes before you approve it, because understanding the code is the point. The bundled `build-mcp-server`, `build-mcp-app` and `build-mcpb` skills load automatically in this repo.
+Every step is built with **Claude in a thread of your bootcamp's Claude project**, working on your local clone (see [How we work](../README.md#how-we-work-local-first-human-in-the-loop)). Follow the instructions in order and paste each prompt into the thread. Read what Claude proposes before you approve it, because understanding the code is the point. Claude never commits or pushes: you review the changes, then commit and push them in GitHub Desktop. The prompts use Anthropic's `build-mcp-server` and `build-mcp-app` skills (see [Built-in skills](../README.md#built-in-skills)).
 
 > These prompts are a draft and will be refined as the step is developed.
 
-**1. Open the repo's root folder in the Code tab of Claude Desktop so the bundled skills load, then copy your step 15 code into `step-16-security-hardening/`.**
+**1. Start a new thread for this step in your bootcamp's Claude project, then copy your step 15 code into `step-16-security-hardening/`.**
 
 ```text
 Copy my step-15 code into step-16-security-hardening/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the bootcamp's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-16 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds. Then create a Neon branch named step-16 from my step-15 branch and point this step's database settings (the connection string in .dev.vars and as a secret, and Hyperdrive once the server uses it) at the new branch, so my earlier steps keep working while they are graded.
@@ -145,7 +147,7 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] Tenant isolation: SECURITY.md covers cross-tenant attacks (guessed IDs, injected company names, shared caches), each with a passing test
 - [ ] It works in claude.ai or Claude Desktop
 - [ ] It works in ChatGPT (developer mode)
-- [ ] Tagged and pushed: `git tag step-16-done && git push origin step-16-done`
+- [ ] Tagged `step-16-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
 - [ ] Submitted in the form: fork URL, tag `step-16-done`, live server URL, and screenshots of a refused request (wrong token or another user's data) and of the injection test passing, plus the server still working in **Claude** and **ChatGPT**
 
 ## References

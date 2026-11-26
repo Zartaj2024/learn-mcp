@@ -2,7 +2,9 @@
 
 > 🚧 **Under development.** This step is being written. The plan below shows what it will cover, and the code and instructions are coming soon.
 
-Build one complete, client-ready MCP app with the simplest design that meets a client's needs. Every capstone has the same core: a multi-tenant remote MCP server on Cloudflare Workers with sign-in, business data in Neon with row-level security, search by meaning, screens chosen from intent, security, tests, production deploys and billing. On top of that core, you add only the extras the client actually needs (skills, Durable Objects, Queues, Workflows, Tasks, Events and more), and you justify each one. This time you don't extend the sales server. You start a new product for a new client, which is the job you'll do as an FDE or a founder, and the result is your portfolio piece.
+Build one complete, client-ready MCP app with the simplest design that meets a client's needs. Every capstone has the same core: a multi-tenant remote MCP server on Cloudflare Workers with sign-in, business data in Neon with row-level security, search by meaning, screens chosen from intent, security, tests, production deploys and billing. On top of that core, you add only the extras the client actually needs (skills, Durable Objects, Queues, Workflows, Tasks, Events and more), and you justify each one. This time you don't extend the sales server. You start Stockroom's next product from a brief (or a product for a client of your own), which is the job you'll do as an FDE or a founder, and the result is your portfolio piece.
+
+> 🏬 **Stockroom's ask:** Stockroom's sales assistant is selling, and its customers now want inventory and purchasing too. This time Stockroom hands you a brief instead of prompts. (You may bring a client of your own instead.)
 
 > **Note:** Some extensions (Skills over MCP, Tasks and Events) may still be rolling out in Claude or ChatGPT. Check the [client support matrix](https://modelcontextprotocol.io/extensions/client-matrix). If you choose one of them, make sure the app still works through plain tools where a client doesn't support them yet.
 
@@ -49,7 +51,7 @@ Every earlier step taught one technology on the same sales server, with the prom
 
 ## What you will build
 
-**Stockroom**: an AI-native inventory and purchasing app for small distributors and retailers. Staff run the stockroom by asking Claude or ChatGPT, and the right screen appears in the chat. You may pick another client and domain instead (for example a clinic's appointments or a contractor's jobs), as long as your product meets this table. Build every **Core** row. Then pick at least two **Extra** rows that your client needs, and for each one write in NOTES.md the need, why something simpler isn't enough, and what it costs to run. For each extra you leave out, write one line on why the client doesn't need it.
+**Stockroom Inventory**: Stockroom's next product, an AI-native inventory and purchasing app for the same small distributors and retailers. Their staff run the stockroom by asking Claude or ChatGPT, and the right screen appears in the chat. You may pick another client and domain instead (for example a clinic's appointments or a contractor's jobs), as long as your product meets this table. Build every **Core** row. Then pick at least two **Extra** rows that your client needs, and for each one write in NOTES.md the need, why something simpler isn't enough, and what it costs to run. For each extra you leave out, write one line on why the client doesn't need it.
 
 | Requirement | Core or extra | Stockroom feature | Technology (step) |
 | --- | --- | --- | --- |
@@ -100,11 +102,11 @@ Every earlier step taught one technology on the same sales server, with the prom
 
 ## Build it with Claude Code
 
-Every step is built with **Claude Code in Claude Desktop**. Follow the instructions in order and paste each prompt into the **Code** tab of Claude Desktop. Read what Claude proposes before you approve it, because understanding the code is the point. The bundled `build-mcp-server`, `build-mcp-app` and `build-mcpb` skills load automatically in this repo. The prompts here are shorter than in earlier steps on purpose: you make more of the decisions.
+Every step is built with **Claude in a thread of your bootcamp's Claude project**, working on your local clone (see [How we work](../README.md#how-we-work-local-first-human-in-the-loop)). Follow the instructions in order and paste each prompt into the thread. Read what Claude proposes before you approve it, because understanding the code is the point. Claude never commits or pushes: you review the changes, then commit and push them in GitHub Desktop. The prompts use Anthropic's `build-mcp-server` and `build-mcp-app` skills (see [Built-in skills](../README.md#built-in-skills)). The prompts here are shorter than in earlier steps on purpose: you make more of the decisions.
 
 > These prompts are a draft and will be refined as the step is developed.
 
-**1. Open the repo's root folder in the Code tab of Claude Desktop so the bundled skills load, then copy your step 20 code into `step-21-capstone-mcp-app/` as a starting skeleton.**
+**1. Start a new thread for this step in your bootcamp's Claude project, then copy your step 20 code into `step-21-capstone-mcp-app/` as a starting skeleton.**
 
 ```text
 Copy my step-20 code into step-21-capstone-mcp-app/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the bootcamp's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-21 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds. Don't change any features yet.
@@ -113,13 +115,13 @@ Copy my step-20 code into step-21-capstone-mcp-app/ so I can build on it. Copy o
 **2. Switch to plan mode and design the product.**
 
 ```text
-Read step-21-capstone-mcp-app/README.md and the technology rules in AGENTS.md. I'm building Stockroom (or tell me if I name another product). Propose the architecture: tenants and roles, Neon tables, the tools with their annotations, and the widgets for every Core row. Then interview me about the client's needs and propose which Extra rows to add, at least two, with the need, why something simpler isn't enough and the running cost for each, and one line for each extra we leave out. If we choose Skills, Tasks or Events, include a fallback for clients that don't support them yet. Write the agreed design to step-21-capstone-mcp-app/NOTES.md.
+Read step-21-capstone-mcp-app/README.md and the technology rules in AGENTS.md. I'm building Stockroom Inventory (or tell me if I name another product). Propose the architecture: tenants and roles, Neon tables, the tools with their annotations, and the widgets for every Core row. Then interview me about the client's needs and propose which Extra rows to add, at least two, with the need, why something simpler isn't enough and the running cost for each, and one line for each extra we leave out. If we choose Skills, Tasks or Events, include a fallback for clients that don't support them yet. Write the agreed design to step-21-capstone-mcp-app/NOTES.md.
 ```
 
 **3. Start the product on a clean base.**
 
 ```text
-Remove the sales-specific code, keeping the auth, Workers, widget build and test setup. Create a new D1 database for Stockroom's sign-in and a new Neon project or branch for its data, add tenants and roles, set up single sign-on with Better Auth's SSO plugin so each company can use its own identity provider, and make every query and tool scoped to the signed-in user's company.
+Remove the sales-specific code, keeping the auth, Workers, widget build and test setup. Create a new D1 database for Stockroom Inventory's sign-in and a new Neon project or branch for its data, add tenants and roles, set up single sign-on with Better Auth's SSO plugin so each company can use its own identity provider, and make every query and tool scoped to the signed-in user's company.
 ```
 
 **4. Build the data model and core tools.**
@@ -177,7 +179,8 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] Every Core row is implemented, and at least two Extra rows, each justified in NOTES.md (with a fallback where a client doesn't support an extension yet)
 - [ ] NOTES.md has the architecture, evaluation results, setup steps, demo script and price
 - [ ] CLIENT.md has the discovery notes, proposal, price, demo feedback and acceptance test results
-- [ ] Tagged and pushed: `git tag step-21-done && git push origin step-21-done`
+- [ ] Project defence recorded (up to ten minutes: it works, one tool end to end, one tenant-isolation decision, one change you made; see [SUBMITTING.md](../SUBMITTING.md#10-defend-your-project)) and linked in the form
+- [ ] Tagged `step-21-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
 - [ ] Submitted in the form: fork URL, tag `step-21-done`, live server URL, screenshots of at least three different screens chosen from intent in **Claude** and **ChatGPT**, and a link to a demo video of up to three minutes
 
 ## References

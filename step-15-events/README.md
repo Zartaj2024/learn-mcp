@@ -4,6 +4,8 @@
 
 Let the server tell the client when something happens, such as a new order or a crossed threshold, using the MCP Events extension.
 
+> 🏬 **Stockroom's ask:** Managers want to hear when something happens (a new order, a monthly target crossed) instead of asking every hour. Stockroom wants events that the AI apps its customers use can react to.
+
 > **Note:** Events (`io.modelcontextprotocol/events`) is a Beta extension with three ways to deliver an event: the client polls, the server pushes, or the server calls a webhook. MCP's maintainers say they don't yet know which will win, so plan for all three. As of November 2026 the [client support matrix](https://modelcontextprotocol.io/extensions/client-matrix) lists no Events support in Claude yet and webhook-only support in ChatGPT. Check it before you test, and keep the `list_recent_events` fallback.
 
 ## Learn first
@@ -68,11 +70,11 @@ Two events on the sales server: `order.created` (order ID, total and customer na
 
 ## Build it with Claude Code
 
-Every step is built with **Claude Code in Claude Desktop**. Follow the instructions in order and paste each prompt into the **Code** tab of Claude Desktop. Read what Claude proposes before you approve it, because understanding the code is the point. The bundled `build-mcp-server`, `build-mcp-app` and `build-mcpb` skills load automatically in this repo.
+Every step is built with **Claude in a thread of your bootcamp's Claude project**, working on your local clone (see [How we work](../README.md#how-we-work-local-first-human-in-the-loop)). Follow the instructions in order and paste each prompt into the thread. Read what Claude proposes before you approve it, because understanding the code is the point. Claude never commits or pushes: you review the changes, then commit and push them in GitHub Desktop. The prompts use Anthropic's `build-mcp-server` and `build-mcp-app` skills (see [Built-in skills](../README.md#built-in-skills)).
 
 > These prompts are a draft and will be refined as the step is developed.
 
-**1. Open the repo's root folder in the Code tab of Claude Desktop so the bundled skills load, then copy your step 14 code into `step-15-events/`.**
+**1. Start a new thread for this step in your bootcamp's Claude project, then copy your step 14 code into `step-15-events/`.**
 
 ```text
 Copy my step-14 code into step-15-events/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the bootcamp's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-15 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds. Then create a Neon branch named step-15 from my step-14 branch and point this step's database settings (the connection string in .dev.vars and as a secret, and Hyperdrive once the server uses it) at the new branch, so my earlier steps keep working while they are graded.
@@ -124,7 +126,8 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] Tenant isolation: events and subscriptions never cross companies, and the test for it passes
 - [ ] It works in claude.ai or Claude Desktop. If Claude doesn't support this extension yet, the rest of the server still works there and your NOTES.md records the support status from the [client support matrix](https://modelcontextprotocol.io/extensions/client-matrix)
 - [ ] It works in ChatGPT (developer mode), with the same exception and NOTES.md entry if ChatGPT doesn't support this extension yet
-- [ ] Tagged and pushed: `git tag step-15-done && git push origin step-15-done`
+- [ ] Project defence recorded (up to five minutes: it works, one tool end to end, one tenant-isolation decision, one change you made; see [SUBMITTING.md](../SUBMITTING.md#10-defend-your-project)) and linked in the form
+- [ ] Tagged `step-15-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
 - [ ] Submitted in the form: fork URL, tag `step-15-done`, live server URL, and screenshots of an event being received (or a note on client support if it isn't available yet) in **Claude** and **ChatGPT**
 
 ## References

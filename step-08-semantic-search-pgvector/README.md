@@ -4,6 +4,8 @@
 
 Clients' questions are often about their documents, not their tables: "can I give a 15% discount to a new customer?", "what's our returns rule for opened items?", "do we sell anything for cold storage?". Searching for the same words misses most of these, because people don't use the policy's exact words. In this step your MCP server searches by **meaning** with **pgvector**, the Postgres add-on for embeddings, inside the same Neon database, the same tables and the same row-level security as the rest of the business data. Every answer cites the document and line it came from, the search **abstains** when nothing is close enough, and a fixed question set measures retrieval so a change that makes it worse fails the build.
 
+> 🏬 **Stockroom's ask:** Customers keep asking questions their tables can't answer: discount rules, return policies, what the catalog says about cold storage. Stockroom wants answers from each customer's own documents, with the source cited, and an honest "not covered" when nothing fits.
+
 ## Learn first
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
@@ -87,11 +89,11 @@ The step 7 multi-tenant sales server, now with search by meaning:
 
 ## Build it with Claude Code
 
-Every step is built with **Claude Code in Claude Desktop**. Follow the instructions in order and paste each prompt into the **Code** tab of Claude Desktop. Read what Claude proposes before you approve it, because understanding the code is the point. The bundled `build-mcp-server`, `build-mcp-app` and `build-mcpb` skills load automatically in this repo. As in step 5, predict what each query and search returns before you run it.
+Every step is built with **Claude in a thread of your bootcamp's Claude project**, working on your local clone (see [How we work](../README.md#how-we-work-local-first-human-in-the-loop)). Follow the instructions in order and paste each prompt into the thread. Read what Claude proposes before you approve it, because understanding the code is the point. Claude never commits or pushes: you review the changes, then commit and push them in GitHub Desktop. The prompts use Anthropic's `build-mcp-server` and `build-mcp-app` skills (see [Built-in skills](../README.md#built-in-skills)). As in step 5, predict what each query and search returns before you run it.
 
 > These prompts are a draft and will be refined as the step is developed.
 
-**1. Open the repo's root folder in the Code tab of Claude Desktop so the bundled skills load, then copy your step 7 code into `step-08-semantic-search-pgvector/`.**
+**1. Start a new thread for this step in your bootcamp's Claude project, then copy your step 7 code into `step-08-semantic-search-pgvector/`.**
 
 ```text
 Copy my step-07 code into step-08-semantic-search-pgvector/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the bootcamp's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-08 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds. Then create a Neon branch named step-08 from my step-07 branch and point this step's database settings (the connection string in .dev.vars and as a secret, and Hyperdrive once the server uses it) at the new branch, so my earlier steps keep working while they are graded.
@@ -157,7 +159,8 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] Tenant isolation: passages and embeddings are under forced row-level security, and a test proves one company's search never returns another company's passage
 - [ ] It works in claude.ai or Claude Desktop
 - [ ] It works in ChatGPT (developer mode)
-- [ ] Tagged and pushed: `git tag step-08-done && git push origin step-08-done`
+- [ ] Project defence recorded (up to five minutes: it works, one tool end to end, one tenant-isolation decision, one change you made; see [SUBMITTING.md](../SUBMITTING.md#10-defend-your-project)) and linked in the form
+- [ ] Tagged `step-08-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
 - [ ] Submitted in the form: fork URL, tag `step-08-done`, live server URL, and screenshots of a cited policy answer and an abstention in **Claude** and **ChatGPT**
 
 ## References

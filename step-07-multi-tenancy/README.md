@@ -4,6 +4,8 @@
 
 Almost every server you build for a client, and every product you sell, serves many companies from one deployment. Each company (a *tenant*) has its own people, settings and data, and no tenant may ever see another's. Steps 4 to 6 gave every user a company, put an `org_id` on every row and turned on row-level security. This step makes multi-tenancy the architecture of the whole server: you choose an isolation model for each kind of customer, carry one tenant context through every tool call, give each company its own settings and sign-in, build tenant-scoped helpers that every later step reuses for keys, Durable Objects, queue messages, Workflow runs, tasks and events, and prove isolation with a cross-tenant test suite.
 
+> 🏬 **Stockroom's ask:** Stockroom is signing many small distributors on a shared plan and one large retailer that insists on its own database and its own sign-in. One deployment must serve them all, and a single leak between them would end Stockroom's business.
+
 ## Learn first
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
@@ -92,11 +94,11 @@ The step 6 sales server, made multi-tenant by design:
 
 ## Build it with Claude Code
 
-Every step is built with **Claude Code in Claude Desktop**. Follow the instructions in order and paste each prompt into the **Code** tab of Claude Desktop. Read what Claude proposes before you approve it, because understanding the code is the point. The bundled `build-mcp-server`, `build-mcp-app` and `build-mcpb` skills load automatically in this repo.
+Every step is built with **Claude in a thread of your bootcamp's Claude project**, working on your local clone (see [How we work](../README.md#how-we-work-local-first-human-in-the-loop)). Follow the instructions in order and paste each prompt into the thread. Read what Claude proposes before you approve it, because understanding the code is the point. Claude never commits or pushes: you review the changes, then commit and push them in GitHub Desktop. The prompts use Anthropic's `build-mcp-server` and `build-mcp-app` skills (see [Built-in skills](../README.md#built-in-skills)).
 
 > These prompts are a draft and will be refined as the step is developed.
 
-**1. Open the repo's root folder in the Code tab of Claude Desktop so the bundled skills load, then copy your step 6 code into `step-07-multi-tenancy/`.**
+**1. Start a new thread for this step in your bootcamp's Claude project, then copy your step 6 code into `step-07-multi-tenancy/`.**
 
 ```text
 Copy my step-06 code into step-07-multi-tenancy/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the bootcamp's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-07 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds. Then create a Neon branch named step-07 from my step-06 branch and point this step's database settings (the connection string in .dev.vars and as a secret, and Hyperdrive once the server uses it) at the new branch, so my earlier steps keep working while they are graded.
@@ -162,7 +164,7 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] Tenant isolation: the cross-tenant suite passes for a shared-tier and a dedicated-tier company, and no tool accepts a company or user ID as input
 - [ ] It works in claude.ai or Claude Desktop
 - [ ] It works in ChatGPT (developer mode)
-- [ ] Tagged and pushed: `git tag step-07-done && git push origin step-07-done`
+- [ ] Tagged `step-07-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
 - [ ] Submitted in the form: fork URL, tag `step-07-done`, live server URL, and screenshots of two users in different companies each seeing only their own data, and of a cross-company request being refused, in **Claude** and **ChatGPT**
 
 ## References

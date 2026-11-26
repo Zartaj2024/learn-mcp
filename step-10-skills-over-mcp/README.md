@@ -4,6 +4,8 @@
 
 Ship *know-how* along with tools. Skills over MCP lets a server provide packaged instructions (skills) that teach the model how to use the server's tools well for specific tasks. Because the skills live on the server, you update them whenever you update the tools, and users install nothing. And because your server already knows who is calling and which company they belong to, it can do something a plugin can't: serve a shared playbook to everyone *and* a skill built for each company.
 
+> 🏬 **Stockroom's ask:** Every Stockroom customer sells a little differently. Stockroom wants one shared sales-review playbook for everyone, plus each customer's own targets, terms and sign-off rules, served only to that customer.
+
 > **Note:** Skills over MCP (`io.modelcontextprotocol/skills`) is a Beta extension. Anthropic announced public beta support in Claude and Claude Code on November 24, 2026: on by default for Pro, Max and Ultra plans, enabled by an admin on Team plans, with Enterprise to follow. ChatGPT has partial support. Check the [client support matrix](https://modelcontextprotocol.io/extensions/client-matrix) for the latest status.
 
 ## Learn first
@@ -78,11 +80,11 @@ A shared `monthly-sales-review` skill that guides the model through querying Neo
 
 ## Build it with Claude Code
 
-Every step is built with **Claude Code in Claude Desktop**. Follow the instructions in order and paste each prompt into the **Code** tab of Claude Desktop. Read what Claude proposes before you approve it, because understanding the code is the point. The bundled `build-mcp-server`, `build-mcp-app` and `build-mcpb` skills load automatically in this repo.
+Every step is built with **Claude in a thread of your bootcamp's Claude project**, working on your local clone (see [How we work](../README.md#how-we-work-local-first-human-in-the-loop)). Follow the instructions in order and paste each prompt into the thread. Read what Claude proposes before you approve it, because understanding the code is the point. Claude never commits or pushes: you review the changes, then commit and push them in GitHub Desktop. The prompts use Anthropic's `build-mcp-server` and `build-mcp-app` skills (see [Built-in skills](../README.md#built-in-skills)).
 
 > These prompts are a draft and will be refined as the step is developed.
 
-**1. Open the repo's root folder in the Code tab of Claude Desktop so the bundled skills load, then copy your step 9 code into `step-10-skills-over-mcp/`.**
+**1. Start a new thread for this step in your bootcamp's Claude project, then copy your step 9 code into `step-10-skills-over-mcp/`.**
 
 ```text
 Copy my step-09 code into step-10-skills-over-mcp/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the bootcamp's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-10 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds. Then create a Neon branch named step-10 from my step-09 branch and point this step's database settings (the connection string in .dev.vars and as a secret, and Hyperdrive once the server uses it) at the new branch, so my earlier steps keep working while they are graded.
@@ -140,7 +142,8 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] Tenant isolation: the shared skill holds no company's data and uses only company-scoped tools, each company's playbook is listed and served only to that company (tested through `skills/list`, `skills/get` and `resources/read`), and per-company results are never cached as public
 - [ ] It works in claude.ai or Claude Desktop. If Claude doesn't support this extension yet, the rest of the server still works there and your NOTES.md records the support status from the [client support matrix](https://modelcontextprotocol.io/extensions/client-matrix)
 - [ ] It works in ChatGPT (developer mode), with the same exception and NOTES.md entry if ChatGPT doesn't support this extension yet
-- [ ] Tagged and pushed: `git tag step-10-done && git push origin step-10-done`
+- [ ] Project defence recorded (up to five minutes: it works, one tool end to end, one tenant-isolation decision, one change you made; see [SUBMITTING.md](../SUBMITTING.md#10-defend-your-project)) and linked in the form
+- [ ] Tagged `step-10-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
 - [ ] Submitted in the form: fork URL, tag `step-10-done`, live server URL, and screenshots of the monthly-sales-review skill and a company playbook in use (or a note on client support if it isn't available yet) in **Claude** and **ChatGPT**
 
 ## References

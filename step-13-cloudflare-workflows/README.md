@@ -4,6 +4,8 @@
 
 Some jobs take minutes, run in several stages, wait for a person, or must survive a crash. Your MCP server handles them with Cloudflare Workflows: the Workflow is defined and bound inside the same Worker that serves `/mcp`, and runs each job as a series of durable steps: each finished step is saved, a failed step is retried, and the job picks up where it left off. An MCP tool starts the job and returns a run ID straight away, and a second tool lets the model check on it. This uses plain tools, so it works in Claude and ChatGPT today, and step 14 puts the standard MCP Tasks extension on top of it.
 
+> 🏬 **Stockroom's ask:** Year-end sales reports take minutes to build and wait for a manager's approval before they are published. Stockroom wants these jobs to survive crashes and let the model check on them.
+
 ## Learn first
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
@@ -73,11 +75,11 @@ A `generate_sales_report` Workflow that reads a year of Neon sales data in pages
 
 ## Build it with Claude Code
 
-Every step is built with **Claude Code in Claude Desktop**. Follow the instructions in order and paste each prompt into the **Code** tab of Claude Desktop. Read what Claude proposes before you approve it, because understanding the code is the point. The bundled `build-mcp-server`, `build-mcp-app` and `build-mcpb` skills load automatically in this repo.
+Every step is built with **Claude in a thread of your bootcamp's Claude project**, working on your local clone (see [How we work](../README.md#how-we-work-local-first-human-in-the-loop)). Follow the instructions in order and paste each prompt into the thread. Read what Claude proposes before you approve it, because understanding the code is the point. Claude never commits or pushes: you review the changes, then commit and push them in GitHub Desktop. The prompts use Anthropic's `build-mcp-server` and `build-mcp-app` skills (see [Built-in skills](../README.md#built-in-skills)).
 
 > These prompts are a draft and will be refined as the step is developed.
 
-**1. Open the repo's root folder in the Code tab of Claude Desktop so the bundled skills load, then copy your step 12 code into `step-13-cloudflare-workflows/`.**
+**1. Start a new thread for this step in your bootcamp's Claude project, then copy your step 12 code into `step-13-cloudflare-workflows/`.**
 
 ```text
 Copy my step-12 code into step-13-cloudflare-workflows/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the bootcamp's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-13 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds. Then create a Neon branch named step-13 from my step-12 branch and point this step's database settings (the connection string in .dev.vars and as a secret, and Hyperdrive once the server uses it) at the new branch, so my earlier steps keep working while they are graded.
@@ -129,7 +131,7 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] Tenant isolation: every Workflow run carries the tenant envelope, and status and approval tools refuse another company's runs
 - [ ] It works in claude.ai or Claude Desktop
 - [ ] It works in ChatGPT (developer mode)
-- [ ] Tagged and pushed: `git tag step-13-done && git push origin step-13-done`
+- [ ] Tagged `step-13-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
 - [ ] Submitted in the form: fork URL, tag `step-13-done`, live server URL, and screenshots of a report being started, checked until it finishes, and approved in **Claude** and **ChatGPT**
 
 ## References

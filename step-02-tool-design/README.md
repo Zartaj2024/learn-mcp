@@ -4,6 +4,8 @@
 
 Learn to design tools that models use correctly. That means clear names and descriptions, tight input schemas, structured outputs, sensible granularity, and annotations that tell the host which tools are safe.
 
+> 🏬 **Stockroom's ask:** Stockroom's first feature is account notes for its customers' sales reps ("called Ali at Karachi Foods, wants a price list on Friday"). Before any of it is real data, Stockroom wants notes tools the model calls correctly every time, because a wrong call in front of a customer's staff costs trust.
+
 ## Learn first
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
@@ -72,11 +74,11 @@ We refactor the step 1 server into a small "notes" toolset (`list_notes`, `get_n
 
 ## Build it with Claude Code
 
-Every step is built with **Claude Code in Claude Desktop**. Follow the instructions in order and paste each prompt into the **Code** tab of Claude Desktop. Read what Claude proposes before you approve it, because understanding the code is the point. The bundled `build-mcp-server`, `build-mcp-app` and `build-mcpb` skills load automatically in this repo.
+Every step is built with **Claude in a thread of your bootcamp's Claude project**, working on your local clone (see [How we work](../README.md#how-we-work-local-first-human-in-the-loop)). Follow the instructions in order and paste each prompt into the thread. Read what Claude proposes before you approve it, because understanding the code is the point. Claude never commits or pushes: you review the changes, then commit and push them in GitHub Desktop. The prompts use Anthropic's `build-mcp-server` and `build-mcp-app` skills (see [Built-in skills](../README.md#built-in-skills)).
 
 > These prompts are a draft and will be refined as the step is developed.
 
-**1. Open the repo's root folder in the Code tab of Claude Desktop so the bundled skills load, then copy your step 1 code into `step-02-tool-design/`.**
+**1. Start a new thread for this step in your bootcamp's Claude project, then copy your step 1 code into `step-02-tool-design/`.**
 
 ```text
 Copy my step-01 code into step-02-tool-design/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the bootcamp's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-02 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds.
@@ -133,7 +135,7 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] The server is deployed to your own Cloudflare account and the `/mcp` URL works
 - [ ] It works in claude.ai or Claude Desktop
 - [ ] It works in ChatGPT (developer mode)
-- [ ] Tagged and pushed: `git tag step-02-done && git push origin step-02-done`
+- [ ] Tagged `step-02-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
 - [ ] Submitted in the form: fork URL, tag `step-02-done`, live server URL, and screenshots of the model choosing the right notes tool in **Claude** and **ChatGPT**
 
 ## References

@@ -4,6 +4,8 @@
 
 Take the server to production on Cloudflare and verify it properly across all target clients: separate environments, a custom domain, secrets per environment, a CI pipeline that runs the step 17 tests and gates each deploy, safe releases with rollbacks, and a cross-client test plan.
 
+> 🏬 **Stockroom's ask:** Stockroom is going live with paying customers. It needs staging and production, safe releases with a rollback, and proof that everything works in each AI app its customers use.
+
 ## Learn first
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
@@ -72,11 +74,11 @@ A production deployment of the sales server on a custom domain, staging and prod
 
 ## Build it with Claude Code
 
-Every step is built with **Claude Code in Claude Desktop**. Follow the instructions in order and paste each prompt into the **Code** tab of Claude Desktop. Read what Claude proposes before you approve it, because understanding the code is the point. The bundled `build-mcp-server`, `build-mcp-app` and `build-mcpb` skills load automatically in this repo.
+Every step is built with **Claude in a thread of your bootcamp's Claude project**, working on your local clone (see [How we work](../README.md#how-we-work-local-first-human-in-the-loop)). Follow the instructions in order and paste each prompt into the thread. Read what Claude proposes before you approve it, because understanding the code is the point. Claude never commits or pushes: you review the changes, then commit and push them in GitHub Desktop. The prompts use Anthropic's `build-mcp-server` and `build-mcp-app` skills (see [Built-in skills](../README.md#built-in-skills)).
 
 > These prompts are a draft and will be refined as the step is developed.
 
-**1. Open the repo's root folder in the Code tab of Claude Desktop so the bundled skills load, then copy your step 17 code into `step-18-deploy-and-test/`.**
+**1. Start a new thread for this step in your bootcamp's Claude project, then copy your step 17 code into `step-18-deploy-and-test/`.**
 
 ```text
 Copy my step-17 code into step-18-deploy-and-test/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the bootcamp's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-18 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds. Then create a Neon branch named step-18 from my step-17 branch and point this step's database settings (the connection string in .dev.vars and as a secret, and Hyperdrive once the server uses it) at the new branch, so my earlier steps keep working while they are graded.
@@ -128,7 +130,8 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] Tenant isolation: the cross-tenant suite passes against staging before each production release, and no tenant data or settings are shared between environments
 - [ ] It works in claude.ai or Claude Desktop
 - [ ] It works in ChatGPT (developer mode)
-- [ ] Tagged and pushed: `git tag step-18-done && git push origin step-18-done`
+- [ ] Project defence recorded (up to five minutes: it works, one tool end to end, one tenant-isolation decision, one change you made; see [SUBMITTING.md](../SUBMITTING.md#10-defend-your-project)) and linked in the form
+- [ ] Tagged `step-18-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
 - [ ] Submitted in the form: fork URL, tag `step-18-done`, live server URL, and screenshots of your production server passing the cross-client test plan in **Claude** and **ChatGPT**
 
 ## References

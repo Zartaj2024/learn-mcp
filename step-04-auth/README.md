@@ -4,6 +4,8 @@
 
 Protect the server so that only signed-in users can use it, and so that every tool call knows *who* is calling. We use OAuth with Better Auth, and store users and sessions in Cloudflare D1. We chose Better Auth partly because it supports single sign-on (SSO) through its open-source `@better-auth/sso` plugin, so a client's staff can later sign in with the company account they already have. Every user also belongs to a company (a *tenant*) with a role, because the servers you build for clients serve whole teams, and from here on every step keeps each company's data apart.
 
+> 🏬 **Stockroom's ask:** Stockroom sells to companies, not individuals. Each customer company's staff must sign in and see only their own notes, admins need more rights than members, and Stockroom's bigger prospects already ask whether their staff can sign in with their company accounts (SSO).
+
 ## Learn first
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
@@ -87,11 +89,11 @@ The notes server from steps 2 and 3, now behind sign-in. Every user belongs to a
 
 ## Build it with Claude Code
 
-Every step is built with **Claude Code in Claude Desktop**. Follow the instructions in order and paste each prompt into the **Code** tab of Claude Desktop. Read what Claude proposes before you approve it, because understanding the code is the point. The bundled `build-mcp-server`, `build-mcp-app` and `build-mcpb` skills load automatically in this repo.
+Every step is built with **Claude in a thread of your bootcamp's Claude project**, working on your local clone (see [How we work](../README.md#how-we-work-local-first-human-in-the-loop)). Follow the instructions in order and paste each prompt into the thread. Read what Claude proposes before you approve it, because understanding the code is the point. Claude never commits or pushes: you review the changes, then commit and push them in GitHub Desktop. The prompts use Anthropic's `build-mcp-server` and `build-mcp-app` skills (see [Built-in skills](../README.md#built-in-skills)).
 
 > These prompts are a draft and will be refined as the step is developed.
 
-**1. Open the repo's root folder in the Code tab of Claude Desktop so the bundled skills load, then copy your step 3 code into `step-04-auth/`.**
+**1. Start a new thread for this step in your bootcamp's Claude project, then copy your step 3 code into `step-04-auth/`.**
 
 ```text
 Copy my step-03 code into step-04-auth/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the bootcamp's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-04 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds.
@@ -160,7 +162,8 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] The server is deployed to your own Cloudflare account and the `/mcp` URL works
 - [ ] It works in claude.ai or Claude Desktop
 - [ ] It works in ChatGPT (developer mode)
-- [ ] Tagged and pushed: `git tag step-04-done && git push origin step-04-done`
+- [ ] Project defence recorded (up to five minutes: it works, one tool end to end, one tenant-isolation decision, one change you made; see [SUBMITTING.md](../SUBMITTING.md#10-defend-your-project)) and linked in the form
+- [ ] Tagged `step-04-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
 - [ ] Submitted in the form: fork URL, tag `step-04-done`, live server URL, and screenshots of signing in and using your own notes in **Claude** and **ChatGPT**
 
 ## References
