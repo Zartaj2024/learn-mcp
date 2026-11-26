@@ -104,6 +104,12 @@ Claude chose `create_note`, then `list_notes` and `get_note`. It reported note I
 
 claude.ai did not expose MCP resources or prompts to the model: Claude said it had no resource list/read tool and no way to invoke `prompts/get`, so it produced an ordinary summary from the tool results instead. This is a client limitation, not a server error. The public MCP Inspector checks above are the direct evidence that `resources/list`, `resources/read`, `prompts/list` and `prompts/get` work on the deployed server.
 
+In Claude Desktop I registered the same public endpoint as a local MCP server named `learn-mcp-step-03`, using `npx mcp-remote` as the stdio bridge because this Desktop build did not offer a direct custom-connector URL field. No token or secret was needed. I asked:
+
+> Using my learn-mcp-step-03 MCP tools, create a note titled "Claude Desktop check" with content "Verified from Claude Desktop." and category study. Then list notes and read the full body back to me.
+
+Claude Desktop loaded the four tools, created note `6ca1fd56-35eb-49e7-afd5-09840cca2e24`, listed it as the only saved note, and read back the complete body `Verified from Claude Desktop.` It also noticed a second copy of the same tools under the web connector name **Learn MCP Step 03**, but did not use it. When I asked it to run `summarize_notes` with `tag=study` and to read `note://6ca1fd56-35eb-49e7-afd5-09840cca2e24` as a resource, Claude Desktop said it could only call MCP tools and had no `prompts/get`, `resources/list` or `resources/read` capability. That matches the claude.ai limitation and again leaves MCP Inspector as the direct resource/prompt evidence. The temporary Desktop note was deleted through `delete_note`.
+
 In ChatGPT developer mode I replaced the Step 2 custom MCP server with **Learn MCP Step 03**, using the same public URL and no authentication. I asked:
 
 > Using Learn MCP Step 03, create a note titled "ChatGPT step 3 check" with content "Verified from ChatGPT developer mode." and category work. Then list notes and read the full body back to me.
@@ -112,9 +118,9 @@ ChatGPT chose the notes tools and reported that it created note `f457b2f9-4bf2-4
 
 > Use the summarize_notes prompt from Learn MCP Step 03 with tag=work and follow its instructions. If the prompt is not directly available, say so clearly.
 
-ChatGPT said that `summarize_notes` was not directly available. It listed only `create_note`, `list_notes`, `get_note` and `delete_note`, and correctly refused to pretend that its own summary came from the MCP prompt. Both temporary client notes were deleted through `delete_note`, and the final `resources/list` was empty.
+ChatGPT said that `summarize_notes` was not directly available. It listed only `create_note`, `list_notes`, `get_note` and `delete_note`, and correctly refused to pretend that its own summary came from the MCP prompt. All temporary client notes were deleted through `delete_note`, and the final `resources/list` was empty.
 
-Screenshots of the client verification are in `screenshots/claude-step03.jpg` and `screenshots/chatgpt-step03.jpg`.
+Screenshots of the client verification are in `screenshots/claude-step03.jpg`, `screenshots/claude-desktop-step03.jpg`, `screenshots/claude-desktop-step03-prompt.jpg` and `screenshots/chatgpt-step03.jpg`.
 
 ## Versions
 
