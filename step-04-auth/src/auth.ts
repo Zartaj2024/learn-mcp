@@ -32,17 +32,25 @@ export function createAuth(env: AuthEnv) {
     // same key as OAuth access tokens. MCP clients use /oauth2/token instead.
     disabledPaths: ["/token"],
     databaseHooks: {
-      user: {
-        create: {
-          after: async (user) => {
-            await ensurePersonalCompany(env.AUTH_DB, user);
-          },
-        },
-      },
       session: {
         create: {
+          // The user row already exists here. Creating the company in this
+          // hook covers both sign-up and later sign-ins, and guarantees that
+          // a session always has an active company before a token is issued.
           before: async (session) => {
-            const orgId = await firstOrganizationId(env.AUTH_DB, session.userId);
+            const user = await env.AUTH_DB.prepare(
+              'SELECT "id", "name" FROM "user" WHERE "id" = ? LIMIT 1',
+            )
+              .bind(session.userId)
+              .first<{ id: string; name: string }>();
+            if (user === null) {
+              throw new APIError("BAD_REQUEST", {
+                message: "Your account was not found.",
+              });
+            }
+
+            await ensurePersonalCompany(env.AUTH_DB, user);
+            const orgId = await firstOrganizationId(env.AUTH_DB, user.id);
             if (orgId === undefined) {
               throw new APIError("BAD_REQUEST", {
                 message: "Your account has no company membership.",
