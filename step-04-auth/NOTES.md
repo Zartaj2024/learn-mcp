@@ -89,9 +89,9 @@ In claude.ai I added a custom connector named **Learn MCP Step 04**, replacing t
 
 In ChatGPT developer mode I replaced the Step 3 custom server with **Learn MCP Step 04**, using OAuth with CIMD. ChatGPT discovered the authorization server, opened the consent page, connected the test account, and then ran the full lifecycle: create note `2048520a-3faf-4f78-8d6d-b93686fe0136`, list it, read the complete body, delete it, and confirm the list was empty. The permission prompt was approved once for the tool calls. ChatGPT also exposed only the tools, so Inspector remains the direct resource and prompt evidence.
 
-In Claude Desktop I changed the local `mcp-remote` entry from `learn-mcp-step-03` to `learn-mcp-step-04` and restarted the app. This Desktop build opened on its Claude.ai sign-in page and stayed there, so I could not complete the Desktop tool check without the user signing in. I did not claim a Desktop result or create a fake screenshot for it. The completed client evidence is claude.ai, ChatGPT developer mode and MCP Inspector; the Desktop check remains pending.
+In Claude Desktop I changed the local `mcp-remote` entry from `learn-mcp-step-03` to `learn-mcp-step-04`, restarted the app, and sent the same note lifecycle prompt after signing in. Claude Desktop loaded the Step 4 tools from the MCP server. It created note `9d901912-6292-45dc-abb5-4ec2ad85a6cc`, listed it as the only saved note, read back the full body `OAuth-protected Step 4 notes verified from Claude Desktop.`, deleted it, and confirmed that a final `list_notes` returned “You have no saved notes yet.” Claude Desktop asked for approval before each tool call, so I approved the calls one at a time. As in the other chat clients, it exposed tools but not `resources/list`, `resources/read` or `prompts/get`, so Inspector remains the direct resource/prompt evidence.
 
-Screenshots of completed client verification are in `screenshots/claude-step04.jpg` and `screenshots/chatgpt-step04.jpg`.
+Screenshots of completed client verification are in `screenshots/claude-step04.jpg`, `screenshots/claude-desktop-step04.jpg` and `screenshots/chatgpt-step04.jpg`.
 
 ## Secrets
 
